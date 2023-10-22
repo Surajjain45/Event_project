@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom"
 import Hero from "./components/Hero_Home/Hero"
 import Events from "./components/Events_display/Events_display"
 import Event_page from "./components/Event_page/event_page"
+import RegisterEvent from "./components/Create_event/register_event"
 
 // import {React} from 'react';
 // import {  Route, Switch } from 'react-router-dom';
@@ -14,6 +15,7 @@ function Home(){
     <Hero/>
      <Features/>
      <Events/>
+     {/* <RegisterEvent/> */}
     </>
   )
 }
