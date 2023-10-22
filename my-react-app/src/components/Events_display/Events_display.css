@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Croissant+One&family=Kanit:wght@600;800;400;700&family=Nunito+Sans:opsz,wght@6..12,600&family=Pacifico&family=Poppins:wght@300;400;500;600;800;900&family=Roboto&family=Sigmar&family=Skranji:wght@700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --yellow: #FFCA1D;
+    --dark-blue: #2B3377;
+    --blackish:#585858;
+    --Blue:#4B4AEF;
+}
+
+.event_section{
+    background-color: var(--Blue);
+}
+
+.event_section h1{
+    color: white;
+    text-align: center;
+    padding: 35px;
+}
+
+.event_section h1 span{
+    margin: 0 14px;
+}
+
+.event_display{
+    display: flex;
+    position: relative;
+    /* width: 100vw; */
+    max-width: 98vw;
+   overflow-x: scroll;
+   /* white-space: nowrap; */
+
+  /* //  background-color: #4B4AEF; */
+    /* border: 3px solid red;; */
+}
+
+.event_details{
+    /* border: 2px solid black; */
+    border-radius: 42px;
+   /* // position: absolute; */
+   /* display: inline-block; */
+   height: 100px;
+    min-width: 200px;
+    /* height: 100%; */
+    margin: 150px 20px;
+    /* background-color: white; */
+    /* overflow: hidden; */
+}
+
+.event_details img{
+   position: absolute;
+   top: 0;
+   /* width: 100%; */
+}
+
+.event_details img:hover{
+    opacity: 0.6;
+}
+
+.event_title{
+    position: absolute;
+    width: 250px;
+    top: 190px;
+    z-index: 100;
+    color: white;
+    margin: 0 16px;
+    font-family: 'Nunito Sans' ,sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+}
+
+.event_des{
+    position: absolute;
+    width: 100%;
+    top: 220px;
+    letter-spacing: 0.1px;
+    /* font */
+    color: white;
+    margin: 0 16px;
+    font-family: 'Nunito Sans' ,sans-serif;
+    
+    /* font-weight: 600; */
+    width: 180px;
+}
+
+ 
+

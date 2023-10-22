@@ -8,6 +8,7 @@
 :root{
      --yellow: #FFCA1D;
      --dark-blue: #2B3377;
+     --blue: #4B4AEF;
      --blackish:#585858;
 }
 
@@ -92,8 +93,8 @@
     background-color: white;
     border-radius: 10px;
     padding:8px 12px;
-    font-weight: 900;
-    font-family: 'Nunito Sans';
+    font-weight: 600;
+    font-family: 'Nunito Sans' sans-serif;
 }
 
 .hero_text .text_heading{

@@ -31,10 +31,7 @@ h1 span{
     transition: all .3s;
 }
 
-.features_details:hover{
-    /* background-color: red; */
-   transform: scale(1.2);
-}
+
 
 .features_details h2{
     color: var(--dark-blue);

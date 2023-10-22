@@ -1,0 +1,238 @@
+:root{
+        --yellow: #FFCA1D;
+        --dark-blue: #2B3377;
+        --blue: #4B4AEF;
+        --blackish:#585858;
+   }
+
+   *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+   }
+
+.image_section_event{
+    background-image: url('./Event_assest/Frame 5.png');
+    position: relative;
+    width: 98vw;
+    height: 450px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.image_text{
+        position: absolute;
+        top: 150px;
+        display: flex;
+        width: 98vw;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        font-family: 'Nurito Sans',sans-serif;
+}
+
+.image_text .category{
+        padding: 4px 8px;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+      background-color: white;
+      color: black;
+}
+
+.image_text .title{
+        font-weight: 800;
+        text-transform: uppercase;
+       color: white;
+       font-size: 4.4rem;
+}
+
+.timeline{
+        font-size: 1.2rem;
+        font-weight: 600;
+}
+
+.timeline span{
+        padding: 0 8px;
+}
+
+.location{
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 6px 0;
+}
+
+.border{
+        border-left: 2px solid white;
+}
+
+.white_box_background{
+        background-color: black;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+}
+
+.white_box{
+        transform: translateY(-20px);
+        font-family: 'Nunito Sans',sans-serif;
+        background-color: white;
+        width: 80vw;
+        align-items: center;
+        border-radius: 44px;
+        padding: 20px 40px;
+}
+
+.about_event{
+        display: flex;
+        justify-content:space-between
+}
+
+.about_event .heading{
+        width: 45vw;
+}
+
+.about_event .left{
+        width: 45vw;
+}
+
+.about_event .about_des{
+        width: 45vw;
+        margin: 12px 0;
+        color: black;
+        font-size: 1.1rem;
+}
+
+.price_des{
+        color: #06F701;
+        margin: 12px 0px;
+        font-size: 1.3rem;
+        font-weight: 600;
+}
+
+.heading_des{
+        font-size: 1.4rem;
+        font-weight: 800;
+        margin: 4px 0;
+        font-family: 'Nurito Sans',sans-serif;
+        letter-spacing: 0.2px;
+}
+
+.timer_box{
+        background-color: var(--yellow);
+        color: black;
+        font-weight: bolder;
+        padding: 8px;
+        font-size: 1.3rem;
+        border-radius: 5px;
+        margin: 7px;
+}
+
+.colon{
+        font-weight: 800;
+        margin:  0 4px;
+        color: black;
+}
+
+.about_event .left .heading{
+        font-size:4rem;
+        font-family: 'Nurito Sans',sans-serif;
+        color: black;
+        font-weight: 800;
+}
+
+.book_ticket{
+        background-color: var(--yellow);
+        color: black;
+        margin: 20px 0;
+        font-weight: 600;
+        width: 70vw;
+        font-size: 1.2rem;
+        transform: translateX(10px);
+        background-color: var(--yellow);
+}
+
+.book_ticket:hover{
+        border: 2px solid var(--blue);
+}
+
+.timer{
+        margin: 40px 0 ;
+        transform: translate(-40px,40px);
+}
+
+.register{
+        color:black;
+        margin-bottom: 20px;
+        font-weight: 600;
+}
+
+.share_icon{
+        background-color: white;
+        transform: translateX(80px);
+        width: 40px;
+}
+
+.share_icon:hover{
+        cursor: pointer;
+}
+
+.about_des p{
+        transform: translateY(-8px);
+}
+
+.answer_heading_des {
+        font-size: 1.3rem;
+}
+
+.answer_heading_des a{
+        margin: 0 4px;
+}
+
+.about_organiser{
+        border: 3px solid var(--yellow);
+        border-radius: 15px;
+        display: flex;
+        margin: 12px 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+}
+
+.about_organiser_heading{
+        margin: 18px 0;
+       background-color: var(--yellow);
+       width: 180px;
+       font-size: 1.2rem;
+       padding: 4px 9px;
+       border-radius: 12px;
+       text-align: center;
+       color: white;
+       letter-spacing: 0.1px;
+}
+
+.about_organiser_name{
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 3rem;
+        color: black;
+
+}
+
+.about_organiser_des{
+     font-size: 1.2rem;
+     color: black;
+}
+
+.profile_icons{
+        margin: 12px 0;
+        margin-bottom: 20px;
+}
+
+.profile_icons .icon{
+      margin: 0 15px;
+}
+
+
+
