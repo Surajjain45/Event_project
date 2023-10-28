@@ -7,7 +7,7 @@ export default function Info_section ({ className , img , title, para}) {
       <div className={`${className}`}>
         {/* <div className= 'info-section-container'> */}
             <div className='info-section-img-container'>
-        <img className='info-section-img' src='' alt='IMAGE HERE!!'></img>
+        <img className='info-section-img' src={img} alt='IMAGE HERE!!'></img>
         </div>
         <div className='info-section-content'>
         <h2 className="info-section-step-title">{title}</h2>

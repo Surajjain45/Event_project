@@ -1,0 +1,26 @@
+.btnss .register_event {
+  background: none;
+  color: #302b63;
+  justify-self: flex-start;
+
+
+}
+
+/* .btnss .login-stp {
+  /* background-color: #302b63; */
+/* } */ 
+
+.form-container {
+  width: fit-content;
+}
+
+/* .forgotpassword {
+  /* cursor:grab; */
+/* } */ 
+.form {
+  margin: auto;
+  margin-left: 40%;
+  /* padding: 10rem; */
+  width: 55vw;
+
+}

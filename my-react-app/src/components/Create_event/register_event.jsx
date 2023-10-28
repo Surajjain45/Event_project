@@ -3,42 +3,122 @@ import React, {useState, useEffect } from "react";
 import Sidebar from './sidebar_component';
 import Questions from './q_input';
 import Info_section from './info_section';
-import image1 from './asset/number-1.png';
-// import { useFormik } from 'formik';
-//  import * as Yup from 'yup';
+// import image1 from './asset/number-1.png';
+import { useFormik } from 'formik';
+ import * as Yup from 'yup';
+ import Personal from './asset/Personal.png'
+ import Event from './asset/Event.png'
+ import Form from './asset/Form.png'
 
 
 export default function RegisterEvent() {      
 
-// const formik = useFormik ({
-//   initialValues: {
-//     fullname: '',
-//     email: '' ,
-//     phone: '',
-//   },
-
-
-//   validationSchema: Yup.object({
-//     fullname: Yup.string().max(20, 'Name too long!').required('Required'),
-//     email: Yup.string().email("Invalid Email").required('Email is required'),
-//     phone: Yup.number().required(),
-//   }),
-
-//   onSubmit: values => {
-//     // next();
-//     console.log("submitted by formik");
-
-//     if(CurrentIndex != 4){
-//       setCurrentIndex(CurrentIndex + 1);
-//     }
-    
-//     alert(JSON.stringify(values));
-
-//   },
-// });
-
+  const formikstep1 = useFormik ({
+    initialValues: {
+      fullname: '',
+      email: '' ,
+      phone: '',
+    },
+  
+  
+    validationSchema: Yup.object({
+      fullname: Yup.string().max(20, 'Name too long!').required('Required'),
+      email: Yup.string().email("Invalid Email").required('Email is required'),
+      phone: Yup.number('Must be a Number').required(),
+    }),
+  
+    onSubmit: values => {
+      // next();
+      console.log("submitted by formik");
+  
+      if(CurrentIndex != 4){
+        setCurrentIndex(CurrentIndex + 1);
+      }
       
-      const [CurrentIndex , setCurrentIndex] = useState(1);
+      alert(JSON.stringify(values));
+  
+    },
+  });
+
+  
+
+  const formikstep2 = useFormik ({
+    initialValues: {
+      eventname: '',
+      eventdesc: '' ,
+      eventmode: '',
+      // offlineeventmode: false,
+      eventdate: '2023-10-20',
+      eventtime: '15:00',
+      eventcat: [],
+      // eventcapacity: 0,
+    },
+  
+  
+    validationSchema: Yup.object({
+      eventname: Yup.string().min(1, 'Name too short!').max(20, 'Name too long!').required('Required'),
+      eventdesc: Yup.string().min(5, 'Description too short!').required('Required'),
+      // eventmode: Yup.mixed().test('Select atleast one mode', function (value) {
+      //   const { onlineeventmode, offlineeventmode } = this.parent;
+      //   return onlineeventmode || offlineeventmode;
+      // }),
+      eventmode: Yup.string().required(),
+      // onlineeventmode: Yup.boolean().required(),
+      // offlineeventmode: Yup.boolean().required(),
+      eventdate: Yup.date().typeError('Invalid date format').required('Date is required'),
+      eventtime: Yup.string().matches( /^([0-1][0-9]|2[0-3]):[0-5][0-9]$/,'Invalid time format (HH:mm)'),
+      eventcat: Yup.string().required('Category is required'),
+      // eventcapacity: Yup.number().min(10, 'Mininum capacity must be 10').required(),
+      // ^^^^^^^^^^(oneOf([])).
+    }),
+  
+    onSubmit: values => {
+      // next();
+      console.log("submitted by formik");
+  
+      if(CurrentIndex != 4){
+        setCurrentIndex(CurrentIndex + 1);
+      }
+      
+      alert(JSON.stringify(values));
+  
+    },
+  });
+
+
+  const formikstep3 = useFormik ({
+    initialValues: {
+     askfullname: false,
+     askemail: false,
+     askcollege: false,
+     askphone: false,
+    //  ask: false,
+    },
+  
+  
+    validationSchema: Yup.object({
+    askfullname: Yup.boolean().required(),
+    askemail: Yup.boolean().required(),
+    askcollege: Yup.boolean().required(),
+    askphone: Yup.boolean().required(),
+
+    }),
+  
+    onSubmit: values => {
+      // next();
+      console.log("submitted by formik");
+  
+      if(CurrentIndex != 4){
+        setCurrentIndex(CurrentIndex + 1);
+      }
+      
+      alert(JSON.stringify(values));
+  
+    },
+  });
+  
+      
+      const [CurrentIndex , setCurrentIndex] = useState(2);
       
       const  next = (e)=>{
 
@@ -66,9 +146,10 @@ export default function RegisterEvent() {
 
      <div className='info-section'>
       <div  className='heading_section'>
+        {/* <p>R</p> */}
         <div className='info-section-title'>
-              <h1 className='title-1'>WHY OUR EVENT PLANNER?</h1>
-              <h2>3 Easy Steps to make your event Successfull.</h2>
+              <h1 className='title-1'>Let's Plan Your Perfect Event Together!</h1>
+              <h2>Creating Memorable Events, One Step at a Time</h2>
 
               
               {/* <img src={image1} alt='step 1' text={About Yourself} sub-text={Create your Profile so that aduinece could trust you}></img>
@@ -77,9 +158,10 @@ export default function RegisterEvent() {
               </div>
 
               <div className='info_section_main'>
-                <Info_section className={'img-on-left'} img={image1}  title={'Tell us about yourself'} para={'lorem 32jdfnvkjndfkjnvkjdfnvkjdfkjvdsvds'}/>
-                <Info_section className={'img-on-right'} img={''}  title={'Tell us about your event'} para={'dkvlkdflnvjenfkjvner'}/>
-                <Info_section className={'img-on-left'} img={''}  title={'Create your own Registration Form'} para={'efknvjefnjvnkjfen'}/>
+                <h3>Start Your Event Journey with Us in Three Simple Steps</h3>
+                <Info_section className={'img-on-left img-on-side'} img={Personal}  title={'1. Personal Info'} para={'Start by creating your account. We need some basic information to get you started. Your details will be kept secure.'}/>
+                <Info_section className={'img-on-right img-on-side'} img={Event}  title={'2. Event Details'} para={'Tell us about your event. When, where, and what type of event are you planning? This information will help us customize your experience.'}/>
+                <Info_section className={'img-on-left img-on-side'} img={Form}  title={'3. Customize for Your Audience'} para={'This is where the magic happens. Customize your event to match your vision. Choose themes, food, entertainment, and more!'}/>
               
               </div>
               </div>
@@ -161,7 +243,8 @@ export default function RegisterEvent() {
      
 <div className={CurrentIndex === 1 ? '' : 'step-hidden'}>
 
-<form onSubmit={next}>
+<form onSubmit={formikstep1.handleSubmit}>
+
     <div className="stp step-1  ">
         <div className='stp-content'>
       <div className="header">
@@ -182,23 +265,29 @@ export default function RegisterEvent() {
 
         <div className="label">
           <label htmlFor="name">Name</label>
-          <p className="error"></p>
+          {formikstep1.touched.fullname && formikstep1.errors.fullname && (
+         <p className="error">{formikstep1.errors.fullname}</p>
+         )} 
+
         </div>
         <input  className=' input'
           required=""
           type="text"
-          name="name"
+          name="fullname"
           id="name"
           placeholder="e.g. Karan Verma"
-          // onChange={formik.handleChange}
-          // onBlur={formik.handleBlur}
-          //  value= {formik.values.fullname}
+          onChange={formikstep1.handleChange}
+          onBlur={formikstep1.handleBlur}
+           value= {formikstep1.values.fullname}
           />
       
       
         <div className="label">
           <label htmlFor="email">Email Address</label>
-          {/* <p className="error">This Field Is Required</p> */}
+          {formikstep1.touched.email && formikstep1.errors.email && (
+         <p className="error">{formikstep1.errors.email}</p>
+        )} 
+
         </div>
         <input  className=' input'
           required=""
@@ -206,15 +295,19 @@ export default function RegisterEvent() {
           name="email"
           id="email"
           placeholder="e.g. karan@sample.com"
-          // value= {values.email}
-          // onChange={formik.handleChange}
-          // onBlur={formik.handleBlur}
+          onChange={formikstep1.handleChange}
+          onBlur={formikstep1.handleBlur}
+          value= {formikstep1.values.email}
           />
       
       
         <div className="label">
           <label htmlFor="name">Phone Number</label>
-          {/* <p className="error">This Field Is Required</p> */}
+          {formikstep1.touched.phone && formikstep1.errors.phone && (
+         <p className="error">{formikstep1.errors.phone}</p>
+        )}
+
+          
         </div>
         <input  className='input'
           required=""
@@ -222,9 +315,9 @@ export default function RegisterEvent() {
           name="phone"
           id="phone"
           placeholder="e.g. Phone Number"
-          // value= {values.phone}
-          // onChange={formik.handleChange}
-          // onBlur={formik.handleBlur}
+          onChange={formikstep1.handleChange}
+          onBlur={formikstep1.handleBlur}
+          value= {formikstep1.values.phone}
         />
 
 
@@ -255,6 +348,7 @@ export default function RegisterEvent() {
     {/* {(CurrentIndex!==2) ? " hidden "}  */}
 
     <div className={CurrentIndex === 2 ? '' : 'step-hidden'}>
+    <form onSubmit={formikstep2.handleSubmit}>
     <div className="stp step-2">
 
     <div className='stp-content'>
@@ -265,48 +359,67 @@ export default function RegisterEvent() {
       </div>
 
       <div className='form-section'>
-      <form>
+
+    
 
 
-      <Questions classnam={'event_name'} label={'Event Name'} input_type={'text'} placeholder={'e.g. Kashti'}/>
-      <Questions classnam={'event_desc'} label={'Event Description'} input_type={'text'} placeholder={'e.g. Tell us about your Event'}/>
+      {/* <Questions classnam={'event_name'} label={'Event Name'} input_type={'text'} placeholder={'e.g. Kashti'}/>
+      <Questions classnam={'event_desc'} label={'Event Description'} input_type={'text'} placeholder={'e.g. Tell us about your Event'}/> */}
       {/* <Questions className={'Event_category'} label={'Event Category'} input_type={'time'} placeholder={''}/> */}
 
-      {/* <div className="label">
+<div className='event_name question'>
+      <div className="label">
           <label htmlFor="eventname">Event Name</label>
-          <p className="error">This Field Is Required</p>
-          
+          {formikstep2.touched.eventname && formikstep2.errors.eventname && (
+          <p className="error">{formikstep2.errors.eventname}</p>
+          )}
           </div>
           <input  className=' input'
           required=""
           type="text"
           id="eventname"
           placeholder="e.g. Aaina"
+          onChange={formikstep2.handleChange}
+          onBlur={formikstep2.handleBlur}
+           value= {formikstep2.values.eventname}
           />
+</div>
+
+<div className='event_desc question'>
           <div className="label">
           <label htmlFor="eventinfo">Event Description</label>
-          <p className="error">This Field Is Required</p>
-          
+          {formikstep2.touched.eventdesc && formikstep2.errors.eventdesc && (
+          <p className="error">{formikstep2.errors.eventdesc}</p>
+          )}
           </div>
           <input  className=' input'
           required=""
           type="text"
-          id="eventinfo"
+          id="eventdesc"
           placeholder="e.g. Tell us about your Event"
-        /> */}
-
+          onChange={formikstep2.handleChange}
+          onBlur={formikstep2.handleBlur}
+           value= {formikstep2.values.eventdesc}
+        />
+</div>
      
       <div className="label mode_question">
           <label htmlFor="eventmode">Mode of your Event</label>
-          {/* <p className="error">This Field Is Required</p> */}
+          {formikstep2.touched.eventmode && formikstep2.errors.eventmode && (
+          <p className="error">{formikstep2.errors.eventmode}</p>
+          )}
         </div>
-        <form>
+        {/* <form> */}
         <input  className='input-radio'
           required=""
           type="radio"
           name="eventmode"
           id="onlinemode" 
-          value="Online"
+          value="online"
+          checked={formikstep2.values.eventmode === 'online'}
+      onChange={formikstep2.handleChange}
+          // checked={formikstep2.values.onlineeventmode}
+          // onChange={formikstep2.handleChange}
           />
         <label for="onlinemode">Online</label>
         <br></br>
@@ -315,40 +428,70 @@ export default function RegisterEvent() {
           type="radio"
           name="eventmode"
           id="offlinemode" 
-          value="Offline"
+          value="offline"
+          checked={formikstep2.values.eventmode === 'offline'}
+      onChange={formikstep2.handleChange}
+
+          // checked={formikstep2.values.offlineeventmode}
+          // onChange={formikstep2.handleChange}
           />
         <label for="offlinemode">Offline</label>
-        </form>
+        {/* </form> */}
 
        
 
 
-        <Questions classnam={'Event_date'} label={'Event Date'} input_type={'date'} placeholder={''}/>
-        <Questions classnam={'Event_time'} label={'Event Time'} input_type={'time'} placeholder={'HH : MM'}/>
+        {/* <Questions classnam={'Event_date'} label={'Event Date'} input_type={'date'} placeholder={''}/>
+        <Questions classnam={'Event_time'} label={'Event Time'} input_type={'time'} placeholder={'HH : MM'}/> */}
         
-        
-        {/* <div className="label">
+<div className='Event_date question'>
+        <div className="label">
           <label htmlFor="eventdate">Event Date</label>
-          <p className="error">This Field Is Required</p>
-          
+          {formikstep2.touched.eventdate && formikstep2.errors.eventdate && (
+          <p className="error">{formikstep2.errors.eventdate}</p>
+          )}
+
           </div>
           <input className=' input'
           required=""
           type="date"
           id="eventdate"
           placeholder="e.g. DD/MM/YYYY"
-        /> */}
+        />
+
+</div>
+<div className='Event_time question'>
+        <div className="label">
+          <label htmlFor="eventtime">Event Time</label>
+          {formikstep2.touched.eventtime && formikstep2.errors.eventtime && (
+          <p className="error">{formikstep2.errors.eventtime}</p>
+          )}
+          </div>
+          <input className='input'
+          required=""
+          type="time"
+          id="eventtime"
+          placeholder="e.g. HH:MM:SS"
+        />
+
+</div>
         {/* ADD EVENT START AND END DATE TOO */}
 
+<div className='Event_cat question'>
         <div className="label">
           <label htmlFor="eventcategory">Event Category</label>
-          {/* <p className="error">This Field Is Required</p> */}
+          {formikstep2.touched.eventcat && formikstep2.errors.eventcat && (
+          <p className="error">{formikstep2.errors.eventcat}</p>
+          )}
 
         </div>
         <select  className='input'
           required=""
           list="categories"
           id="eventcategory"
+          name='eventcat'
+          value={formikstep2.values.selectedOption}
+        onChange={formikstep2.handleChange}
           >
         <option value="" disabled selected hidden>Choose your category</option>
         <option value="Festival">Festival</option>
@@ -361,8 +504,31 @@ export default function RegisterEvent() {
         <option value="Game_Competiton">Game/Competiton</option>
         <option value="Other">Other</option>
         </select>
+</div>
+
+<div className='Event_capacity question'>
+  <div className='label'>
+    <label htmlFor="eventcapacity">Capacity</label>
+    {formikstep2.touched.eventcapacity && formikstep2.errors.eventcapacity && (
+    <p className='error'>{formikstep2.errors.eventcapacity}</p>
+    )}
+  </div>
+<input 
+className='range_input'
+        type="range"
+        min="0"
+        max="5000"
+        step='50'
+        name="eventcapacity"
+        id='eventcapacity'
+        value={formikstep2.values.eventcapacity}
+        onChange={formikstep2.handleChange}
+      />
       
-      </form>
+  <p className='capacity_output'>Number of Seat: {formikstep2.values.eventcapacity}</p>
+
+      </div>
+      {/*comment 1*/}
 
       </div>
 
@@ -371,17 +537,21 @@ export default function RegisterEvent() {
         <button className="prev-stp" type="button" onClick={back}>
           Go Back
         </button>
-        <button className="next-stp" type="submit" onClick={next}>
+        <button className="next-stp" type="submit">
           Next Step
         </button>
       </div>
+
+      `
     </div>
+    </form>
 
     </div>
     {/* Step 2 end */}
     {/* * Step 3 start */}
 
     <div className={CurrentIndex === 3 ? '' : 'step-hidden'}>
+      <form onSubmit={formikstep3.handleSubmit}>
     <div className="stp step-3">
 
     <div className='stp-content'>
@@ -391,7 +561,7 @@ export default function RegisterEvent() {
       </div>
 
       <div className='form-section'>
-      <form>
+    
 
         <div className='label'>
         <label htmlFor='register_ques'>Select question for your registation form.</label>
@@ -401,7 +571,11 @@ export default function RegisterEvent() {
         <input  className='input-checkbox'
         type='checkbox' 
         id='Fullname'
-        value='Fullname'/>
+        name='askfullname'
+        value='Fullname'
+        checked={formikstep3.values.askfullname}
+  onChange={formikstep3.handleChange}
+        />
         <label for='Fullname'> Ask Full Name</label>
         </div>
         
@@ -409,7 +583,11 @@ export default function RegisterEvent() {
         <input className='input-checkbox'
         type='checkbox' 
         id='Email'
-        value='Email'/>
+        name='askemail'
+        value='Email'
+        checked={formikstep3.values.askemail}
+  onChange={formikstep3.handleChange}
+        />
         <label for='Email'> Ask Email Address</label>
         </div>
         
@@ -417,7 +595,11 @@ export default function RegisterEvent() {
         <input  className='input-checkbox'
         type='checkbox' 
         id='college'
-        value='college'/>
+        name='askcollege'
+        value='college'
+        checked={formikstep3.values.askcollege}
+  onChange={formikstep3.handleChange}
+  />
         <label for='college'> Ask College Name</label>
         </div>
         
@@ -425,14 +607,18 @@ export default function RegisterEvent() {
         <input  className='input-checkbox'
         type='checkbox' 
         id='phone_no.'
-        value='phone_no.'/>
+        name='askphone'
+        value='phone_no.'
+        checked={formikstep3.values.askphone}
+  onChange={formikstep3.handleChange}
+        />
         <label for='phone_no.'> Ask Phone Number</label>
         </div>
         
         
 
     
-      </form>
+    
 
       </div>
       </div>
@@ -440,12 +626,12 @@ export default function RegisterEvent() {
         <button className="prev-stp" type="button"  onClick={back}>
           Go Back
         </button>
-        <button className="next-stp" type="submit"  onClick={next}>
+        <button className="next-stp" type="submit">
           Next Step
         </button>
       </div>
     </div>
-
+    </form>
     </div>
     {/* Step 3 end */}
     {/* * Step 4 start */}
