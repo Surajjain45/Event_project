@@ -9,6 +9,7 @@ import { useFormik } from 'formik';
  import Personal from './asset/Personal.png'
  import Event from './asset/Event.png'
  import Form from './asset/Form.png'
+ import axios from 'axios'
 
 
 export default function RegisterEvent() {      
@@ -117,8 +118,53 @@ export default function RegisterEvent() {
     },
   });
   
+ const wholedata= {
+    // Initialize with default values or empty strings
+    organizerName: formikstep1.fullname,
+    organizerEmail: formikstep1.values.email,
+    organizerPhone: formikstep1.values.phone,
+    eventName: formikstep2.values.eventname,
+    eventDescription: formikstep2.values.eventdesc,
+    eventMode: formikstep2.values.eventmode,
+    eventDate: formikstep2.values.eventdate,
+    eventCategory: formikstep2.values.eventcat,
+    numberOfSeats: 0,
+    showFullName: formikstep3.values.askfullname,
+    showEmail: formikstep3.values.askemail,
+    showCollegeName: formikstep3.values.askcollege,
+    showPhoneNumber: formikstep3.values.askphone,
+  };
+  const formikstep4 = useFormik({
+    initialValues: {
+      // Initialize with default values or empty strings
+      organizerName: '',
+      organizerEmail: '',
+      organizerPhone: '',
+      eventName: '',
+      eventDescription: '',
+      eventMode: '',
+      eventDate: '',
+      eventCategory: '',
+      numberOfSeats: 0,
+      showFullName: false,
+      showEmail: false,
+      showCollegeName: false,
+      showPhoneNumber: false,
+    },
+    onSubmit: async (values) => {
+      try {
+        // Send data to the backend
+        await axios.post('http://localhost:3000/api/events/create', wholedata);
+
+        console.log('Event data has been saved successfully');
+      } catch (error) {
+        console.error('Failed to save event data:', error);
+      }
+    },
+  });
+
       
-      const [CurrentIndex , setCurrentIndex] = useState(2);
+      const [CurrentIndex , setCurrentIndex] = useState(1);
       
       const  next = (e)=>{
 
@@ -131,7 +177,9 @@ export default function RegisterEvent() {
         
         console.log(CurrentIndex);
       }
+     
       
+
       function back(){
         if(CurrentIndex != 1){
           setCurrentIndex(CurrentIndex - 1);
@@ -637,6 +685,7 @@ className='range_input'
     {/* * Step 4 start */}
 
     <div className={CurrentIndex === 4 ? '' : 'step-hidden'}>
+    <form onSubmit={formikstep4.handleSubmit}>
     <div className="stp step-4">
       <div className="header">
         <h1 className="title">Preview</h1>
@@ -650,11 +699,14 @@ className='range_input'
         <button className="prev-stp" type="button"  onClick={back}>
           Go Back
         </button>
-        <button className="next-stp" type="submit"  onClick={next}>
+        <button className="next-stp" type="submit">
           Submit
         </button>
       </div>
     </div>
+    </form>
+
+
     {/* Step 4 end */}
     {/* Step 5 start */}
 {/* 

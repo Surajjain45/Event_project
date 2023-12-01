@@ -17,13 +17,13 @@ function Home(){
 
   return(
     <>
-    {/* <Hero/>
+    <Hero/>
      <Features/>
-     <Events/> */}
-     {/* <RegisterEvent/> */}
+     <Events/>
+     <RegisterEvent/>
      <Event_login/>
      {/* <Buttonpages/> */}
-     {/* <LoginForm/> */}
+     <LoginForm/>
   
     </>
   )
