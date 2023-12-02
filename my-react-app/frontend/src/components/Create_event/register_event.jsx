@@ -10,9 +10,26 @@ import { useFormik } from 'formik';
  import Event from './asset/Event.png'
  import Form from './asset/Form.png'
  import axios from 'axios'
+//  import bcrypt from 'bcryptjs'
+//  const bcrypt = require('bcrypt');
 
 
+ 
 export default function RegisterEvent() {      
+
+  function generateUniqueID(email, eventName) {
+    const uniqueId = `${email.split('@')[0]}_${eventName}`;
+    // You might want to further hash the unique ID for security
+    console.log("step 1 wokring");
+    return uniqueId;
+  }
+  
+  // Function to hash a password
+  // async function hashPassword(password) {
+  //   const saltRounds = 10;
+  //   console.log("step 2 wokring");
+  //   return await bcrypt.hash(password, saltRounds);
+  // }
 
   const formikstep1 = useFormik ({
     initialValues: {
@@ -49,8 +66,8 @@ export default function RegisterEvent() {
       eventdesc: '' ,
       eventmode: '',
       // offlineeventmode: false,
-      eventdate: '2023-10-20',
-      eventtime: '15:00',
+      eventdate: '20:10:2024',
+      eventtime: '',
       eventcat: [],
       // eventcapacity: 0,
     },
@@ -66,7 +83,8 @@ export default function RegisterEvent() {
       eventmode: Yup.string().required(),
       // onlineeventmode: Yup.boolean().required(),
       // offlineeventmode: Yup.boolean().required(),
-      eventdate: Yup.date().typeError('Invalid date format').required('Date is required'),
+      // eventdate: Yup.date().typeError('Invalid date format').required('Date is required'),
+      eventdate: Yup.date(),
       eventtime: Yup.string().matches( /^([0-1][0-9]|2[0-3]):[0-5][0-9]$/,'Invalid time format (HH:mm)'),
       eventcat: Yup.string().required('Category is required'),
       // eventcapacity: Yup.number().min(10, 'Mininum capacity must be 10').required(),
@@ -133,7 +151,10 @@ export default function RegisterEvent() {
     showEmail: formikstep3.values.askemail,
     showCollegeName: formikstep3.values.askcollege,
     showPhoneNumber: formikstep3.values.askphone,
+    uniqueId: generateUniqueID(formikstep1.values.email, formikstep2.values.eventname),
+    // password: hashPassword(formikstep1.values.email),
   };
+
   const formikstep4 = useFormik({
     initialValues: {
       // Initialize with default values or empty strings
@@ -150,10 +171,14 @@ export default function RegisterEvent() {
       showEmail: false,
       showCollegeName: false,
       showPhoneNumber: false,
+      uniqueId: '',
+      // password: '',
     },
     onSubmit: async (values) => {
       try {
         // Send data to the backend
+      //  await console.log(wholedata);
+       
         await axios.post('http://localhost:3000/api/events/create', wholedata);
 
         console.log('Event data has been saved successfully');
@@ -694,6 +719,7 @@ className='range_input'
         </p>
       </div>
      <p> herewillbeprevieww
+       {/* {(formikstep1.values.email, formikstep2.values.eventname)} */}
      </p>
       <div className="btnss">
         <button className="prev-stp" type="button"  onClick={back}>

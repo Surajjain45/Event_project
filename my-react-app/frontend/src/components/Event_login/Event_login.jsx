@@ -1,9 +1,45 @@
 import './Event_login.css';
+import { useFormik } from 'formik';
+ import * as Yup from 'yup';
+ import axios from 'axios';
+
 export default function Event_login() {
 
 
-  const handleClick = () => {
-    alert('Event ID is : "Your Email id (without "@gmail.com") + Your event name with no space."');
+
+  const formikstep1 = useFormik({
+    initialValues: {
+      uniqueId: '',
+      Password: '',
+    },
+
+    validationSchema: Yup.object({
+      uniqueId: Yup.string(),
+      Password: Yup.string(),
+    }),
+
+    onSubmit: async (values) => {
+
+      try {
+        
+        console.log(values);
+        const response = await axios.post('http://localhost:3000/events/loginhere', values);
+        // const response = await axios.post('http://localhost:3000/api/events/create', values);
+        console.log(values);
+
+        // Handle successful authentication, e.g., redirect to the dashboard
+        console.log('Authentication successful', response.data);
+      } catch (error) {
+        // Handle authentication error
+        console.error('Authentication failed', error);
+      }
+    },
+  });
+
+
+  const handleAboutUniqueIDClick = (e) => {
+    e.preventDefault();
+    alert('Event ID is : "Your Email id (without "@gmail.com") + "_" + Your event name with no space."');
   };
 
 
@@ -14,14 +50,14 @@ export default function Event_login() {
 
 <div className="form-container">
 
-<form>
+<form  onSubmit={formikstep1.handleSubmit}>
 
     <div className="stp step-1  ">
         <div className='stp-content'>
       <div className="header">
         <h1 className="title">LOGIN INTO YOUR EVENT</h1>
         <p className="exp">
-          Please enter the <a href="#" onClick={handleClick}>Unique Event ID</a> for your Event and the password
+          Please enter the <a href="#" onClick={handleAboutUniqueIDClick}>Unique Event ID</a> for your Event and the password
         </p>
       </div>
       <div className='form-section'>
@@ -35,7 +71,7 @@ export default function Event_login() {
       <Questions classnam={'planner_number'}  label={'Phone Number'} input_type={'tel'} placeholder={'e.g. +123 4567 890'}/> */}
 
         <div className="label">
-          <label htmlFor="eventcode">Event ID</label>
+          <label htmlFor="eventcode">Event UniqueID</label>
           {/* {formikstep1.touched.fullname && formikstep1.errors.fullname && (
          <p className="error">{formikstep1.errors.fullname}</p>
          )}  */}
@@ -44,12 +80,13 @@ export default function Event_login() {
         <input  className='input'
           required=""
           type="text"
-          name="eventcode"
+          name="uniqueId"
           id="eventcode"
-          placeholder="e.g. karanvermaAaina"
-          // onChange={formikstep1.handleChange}
-          // onBlur={formikstep1.handleBlur}
-          //  value= {formikstep1.values.fullname}
+          placeholder="e.g. karanverma_Aaina"
+          // onChange={formik.handleChange}
+          onChange={formikstep1.handleChange}
+          onBlur={formikstep1.handleBlur}
+          value= {formikstep1.values.uniqueId}
           />
       
       
@@ -63,12 +100,12 @@ export default function Event_login() {
         <input  className=' input'
           required=""
           type="password"
-          name="eventpassword"
+          name="Password"
           id="eventpassword"
           placeholder="*********"
-          // onChange={formikstep1.handleChange}
-          // onBlur={formikstep1.handleBlur}
-          // value= {formikstep1.values.email}
+          onChange={formikstep1.handleChange}
+          onBlur={formikstep1.handleBlur}
+          value= {formikstep1.values.Password}
           />
 
           <a href='#' className='forgotpassword'>Forgot Password?</a>

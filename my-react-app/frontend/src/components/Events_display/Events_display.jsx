@@ -20,6 +20,9 @@ export default function Events(){
             <Link to="/events_page">
             <Event_details icon = {image1} title="AAINA EVENT" des="Lorem suraj " />
             </Link>
+            <Link to="/events_page">
+            <Event_details icon = {image1} title="AAINA EVENT" des="Lorem suraj " />
+            </Link>
             
             <Link to="/events_page"><Event_details icon = {image3} title="AAINA EVENT" des="Lorem suraj "/>
             </Link>

@@ -72,6 +72,11 @@ const eventSchema = new mongoose.Schema({
     showEmail: Boolean,
     showCollegeName: Boolean,
     showPhoneNumber: Boolean,
+
+     uniqueId: String,
+     Password: String,
+
+
   });
 
 
