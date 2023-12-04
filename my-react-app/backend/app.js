@@ -8,6 +8,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var createRouter = require('./routes/create');
 var loginPage = require('./routes/login');
+var showEvent = require('./routes/showevents.js');
+var allEvent = require('./routes/allevents')
 const cors = require('cors');
 
 var app = express();
@@ -28,6 +30,9 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/events', createRouter);
 app.use('/events', loginPage);
+app.use('/api/showevents', showEvent);
+app.use('/api/allevents', allEvent);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

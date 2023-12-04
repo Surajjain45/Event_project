@@ -35,7 +35,7 @@ function App() {
     
     <Routes>
          <Route exact path='/' element={<Home/>}></Route>
-         <Route exact path= '/events_page' element = {<Event_page/>}></Route>
+         <Route path= '/events_page/:uniqueId' element = {<Event_page/>}></Route>
     </Routes>
       
       {/* <Event_page/> */}
