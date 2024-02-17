@@ -138,7 +138,7 @@ export default function RegisterEvent() {
   
  const wholedata= {
     // Initialize with default values or empty strings
-    organizerName: formikstep1.fullname,
+    organizerName: formikstep1.values.fullname,
     organizerEmail: formikstep1.values.email,
     organizerPhone: formikstep1.values.phone,
     eventName: formikstep2.values.eventname,
@@ -174,7 +174,7 @@ export default function RegisterEvent() {
       uniqueId: '',
       // password: '',
     },
-    onSubmit: async (values) => {
+    onSubmit: async () => {
       try {
         // Send data to the backend
       //  await console.log(wholedata);
