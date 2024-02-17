@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const EventModel = require('../models/event'); // Assuming you have a model for users
 
 router.post('/loginhere', async (req, res) => {
+  console.log("bhoasdaaa");
     console.log("req.body = " , req.body);
     
     const { uniqueId, Password } = req.body;

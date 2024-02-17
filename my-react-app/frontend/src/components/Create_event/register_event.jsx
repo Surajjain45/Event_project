@@ -155,25 +155,29 @@ export default function RegisterEvent() {
     // password: hashPassword(formikstep1.values.email),
   };
 
+console.log(wholedata);
+
   const formikstep4 = useFormik({
-    initialValues: {
-      // Initialize with default values or empty strings
-      organizerName: '',
-      organizerEmail: '',
-      organizerPhone: '',
-      eventName: '',
-      eventDescription: '',
-      eventMode: '',
-      eventDate: '',
-      eventCategory: '',
-      numberOfSeats: 0,
-      showFullName: false,
-      showEmail: false,
-      showCollegeName: false,
-      showPhoneNumber: false,
-      uniqueId: '',
-      // password: '',
-    },
+
+    // console.log("karaannn");
+    // initialValues: {
+    //   // Initialize with default values or empty strings
+    //   organizerName: '',
+    //   organizerEmail: '',
+    //   organizerPhone: '',
+    //   eventName: '',
+    //   eventDescription: '',
+    //   eventMode: '',
+    //   eventDate: '',
+    //   eventCategory: '',
+    //   numberOfSeats: 0,
+    //   showFullName: false,
+    //   showEmail: false,
+    //   showCollegeName: false,
+    //   showPhoneNumber: false,
+    //   uniqueId: '',
+    //   // password: '',
+    // },
     onSubmit: async () => {
       try {
         // Send data to the backend
@@ -191,17 +195,17 @@ export default function RegisterEvent() {
       
       const [CurrentIndex , setCurrentIndex] = useState(1);
       
-      const  next = (e)=>{
+      // const  next = (e)=>{
 
-        e.preventDefault();
+      //   e.preventDefault();
         
-        console.log("submitted step 1")
-        if(CurrentIndex != 4){
-          setCurrentIndex(CurrentIndex + 1);
-        }
+      //   console.log("submitted step 1")
+      //   if(CurrentIndex != 4){
+      //     setCurrentIndex(CurrentIndex + 1);
+      //   }
         
-        console.log(CurrentIndex);
-      }
+      //   console.log(CurrentIndex);
+      // }
      
       
 

@@ -1,6 +1,7 @@
 import './event_page.css'
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import image1 from './Event_assest/Frame 5.png'
 
 
@@ -65,7 +66,7 @@ console.log(eventDetails)
 
             <div className="about_event">
               <div className="left">
-               <div className="heading">Aaina 2.0</div>
+               <div className="heading">{eventDetails.eventName}</div>
                <div className="about_des">
                 {eventDetails.eventDescription}
 
@@ -113,7 +114,8 @@ console.log(eventDetails)
                </div>
 
             </div>
-               <button className='book_ticket btns'>Book Ticket</button>
+               <Link key={eventDetails.uniqueId} to={`/book_ticket/${eventDetails.uniqueId}`}> <button className='book_ticket btns'>   Book Ticket </button></Link>
+               {/* <button className='book_ticket btns'>Book Ticket</button> */}
 
             <div className="about_organiser">
 
@@ -122,14 +124,14 @@ console.log(eventDetails)
                   </div>
 
                   <div className="about_organiser_name">
-                    {eventDetails.organizerEmail}
+                    {eventDetails.organizerName}
                   </div>
 
                   <div className="about_organiser_des">
                     Feel free to contact for any query
                   </div>
                   <div className="about_organiser_des">
-                    {eventDetails.organizerPhone}
+                    <underline>{eventDetails.organizerPhone}</underline> <bold> | </bold> <underline>{eventDetails.organizerEmail}</underline>
                   </div>
 
                   <div className="profile_icons">

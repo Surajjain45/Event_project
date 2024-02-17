@@ -28,6 +28,7 @@
 
 .event_display{
     display: flex;
+    flex-direction: row-reverse;
     position: relative;
     /* width: 100vw; */
     max-width: 98vw;

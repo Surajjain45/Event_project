@@ -2,9 +2,14 @@ import './Event_login.css';
 import { useFormik } from 'formik';
  import * as Yup from 'yup';
  import axios from 'axios';
+//  import { useHistory } from 'react-router-dom'; 
+ import { Link } from 'react-router-dom';
 
 export default function Event_login() {
 
+  // console.log("helloooo from loginn")
+
+  // const history = useHistory();
 
 
   const formikstep1 = useFormik({
@@ -22,13 +27,15 @@ export default function Event_login() {
 
       try {
         
-        console.log(values);
-        const response = await axios.post('http://localhost:3000/events/loginhere', values);
+        console.log("values");
+        const response = await axios.post('http://localhost:3000/api/loginevents/loginhere', values);
         // const response = await axios.post('http://localhost:3000/api/events/create', values);
         console.log(values);
 
         // Handle successful authentication, e.g., redirect to the dashboard
-        console.log('Authentication successful', response.data);
+        console.log('Authentication successsssful', response.data);
+
+        // history.push('/dashboard');
       } catch (error) {
         // Handle authentication error
         console.error('Authentication failed', error);
@@ -143,9 +150,12 @@ export default function Event_login() {
       <button className="register_event" type="button">
          Haven't registered Event yet?
         </button>
+         {/* <Link to="/dashboard"> */}
         <button className="login-stp" type="submit" >
           Login
         </button>
+    {/* </Link> */}
+
       </div>
 
       </div>
