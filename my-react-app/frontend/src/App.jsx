@@ -6,6 +6,10 @@ import Event_page from "./components/Event_page/event_page"
 import RegisterEvent from "./components/Create_event/register_event"
 import Event_login from "./components/Event_login/Event_login"
 import LoginForm from "./components/Event_login/Event_login"
+import AudienceRegistration from "./components/audienceRegister/audienceRegister"
+import showAudience from "./components/eventDashboard/eventDashboard"
+
+import EventDashboard from './components/eventDashboard/eventDashboard';
 
 // import ModalComponent from "./components/Event_login/Event_login"
 // import Buttonpages from "./components/Event_login/Event_login"
@@ -24,6 +28,8 @@ function Home(){
      <Event_login/>
      {/* <Buttonpages/> */}
      <LoginForm/>
+     <AudienceRegistration/>
+     <showAudience/>
   
     </>
   )
@@ -36,6 +42,8 @@ function App() {
     <Routes>
          <Route exact path='/' element={<Home/>}></Route>
          <Route path= '/events_page/:uniqueId' element = {<Event_page/>}></Route>
+         <Route path= '/book_ticket/:uniqueId' element = {<AudienceRegistration/>}></Route>
+         <Route path="/dashboard" element= {<EventDashboard/>}></Route>
     </Routes>
       
       {/* <Event_page/> */}

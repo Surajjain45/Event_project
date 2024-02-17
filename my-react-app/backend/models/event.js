@@ -9,9 +9,10 @@ const { MongoClient } = require('mongodb');
 // mongoose.connect("mongodb+srv://iamkaran_admin:0608iamkaran@eventplanner.l6hqovn.mongodb.net/").then(() => {
 //     console.log('Connection Succesfudmll');
 // }).catch((err) => console.log('NO Connection hereee , err:', err));
+// mongoose.connect("mongodb+srv://karanverma:karanverma@eventcluster.blixsin.mongodb.net/")
 mongoose.connect("mongodb://localhost:27017/eventDetail")
 .then(() => {
-    console.log('COnntedd!!');
+    console.log('COnntedd!!!');
 })
 .catch((err) => {
     console.log('Errorrrr!!!', err);
@@ -55,9 +56,9 @@ mongoose.connect("mongodb://localhost:27017/eventDetail")
 
 const eventSchema = new mongoose.Schema({
     // First step data
+    organizerPhone: String,
     organizerName: String,
     organizerEmail: String,
-    organizerPhone: String,
   
     // Second step data
     eventName: String,
@@ -75,6 +76,9 @@ const eventSchema = new mongoose.Schema({
 
      uniqueId: String,
      Password: String,
+     
+     audience: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Audience' }],
+     //
 
 
   });

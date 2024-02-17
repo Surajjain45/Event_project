@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 exports.createEvent = async (req, res) => {
 
   const wholeData = req.body;  
-  
+  console.log("whole DATA:: ", wholeData)
   
   try {
     // console.log(req.body.uniqueId)

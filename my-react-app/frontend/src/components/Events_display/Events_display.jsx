@@ -6,7 +6,10 @@ import image1 from './Event_assest/Group 93.png'
 import image2 from './Event_assest/Rectangle 42.png';
 import image3 from './Event_assest/Rectangle 43.png'
 import image4 from './Event_assest/Rectangle 44.png'
+import party_icon from './Event_assest/1.png'
 import { Link } from 'react-router-dom';
+// import { set } from '../../../../backend/app';
+// IF NOT WORKING TRY UNCOMMENTING ABOVE CODE . Q) WHY I USED SET HER FOR???
 
 const imageComponentsArray = [image1 , image2, image3 , image4];
 
@@ -18,12 +21,12 @@ export default function Events(){
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
-      // Function to fetch all event data from the backend
+      // // Function to fetch all event data from the backend
       const fetchAllEvents = async () => {
         try {
           const response = await fetch('http://localhost:3000/api/allevents');
           const data = await response.json();
-          setEvents(data); // Assuming the backend returns an array of events
+          setEvents(data); // // Assuming the backend returns an array of events
         } catch (error) {
           console.error('Error fetching all events:', error);
         }
@@ -33,12 +36,13 @@ export default function Events(){
       fetchAllEvents();
     }, []); // The empty dependency array ensures that this effect runs only once, similar to componentDidMount
 
-    console.log(events);
+    // setEvents([])
+    console.log("events : " ,events);
 
-    // const events = [
-    //     { uniqueId: 'karan_karan', title: 'AAINA EVENT', description: 'Lorem suraj', image: image1 },
-    //     { uniqueId: '0608_aaina', title: 'AAINA EVENT2', description: 'Lorem suraj', image: image2},
-    //     { uniqueId: '2003_aaina', title: 'AAINA EVENT3', description: 'Lorem suraj', image: image3},
+    // const eventts = [
+    //     { uniqueId: 'karan_karan', eventName: 'AAINA EVENT', description: 'Lorem suraj', image: image1  ,eventCategory : 'gaming'},
+    //     { uniqueId: '0608_aaina', eventName: 'AAINA EVENT2', description: 'Lorem suraj', image: image2 ,eventCategory : 'meeting'},
+    //     { uniqueId: '2003_aaina', eventName: 'AAINA EVENT3', description: 'Lorem suraj', image: image3 ,eventCategory : 'party'},
     //     // Add more events as needed
     //   ];
 
@@ -60,7 +64,8 @@ export default function Events(){
 
             {events.map((events) => (
                 <Link key={events.uniqueId} to={`/events_page/${events.uniqueId}`}>
-                <Event_details icon= {imageComponentsArray[Math.floor(Math.random() * imageComponentsArray.length)]} title={events.eventName} des={events.eventCategory} />
+                {/* <Event_details  key={events.uniqueId} icon= {imageComponentsArray[Math.floor(Math.random() * imageComponentsArray.length)]} title={events.eventName} des={events.eventCategory} /> */}
+                <Event_details  key={events.uniqueId} title={events.eventName} des={events.eventCategory} />
         </Link>
       ))}
 
