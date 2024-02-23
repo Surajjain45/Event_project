@@ -10,7 +10,8 @@ const { MongoClient } = require('mongodb');
 //     console.log('Connection Succesfudmll');
 // }).catch((err) => console.log('NO Connection hereee , err:', err));
 // mongoose.connect("mongodb+srv://karanverma:karanverma@eventcluster.blixsin.mongodb.net/")
-mongoose.connect("mongodb://127.0.0.1:27017/list")
+// mongoose.connect("mongodb://127.0.0.1:27017/list")
+mongoose.connect(`mongodb+srv://pass:pass@eventcluster.blixsin.mongodb.net/`)
 .then(() => {
     console.log('COnntedd!!!');
 })
@@ -67,6 +68,16 @@ const eventSchema = new mongoose.Schema({
     eventDate: Date,
     eventCategory: String,
     numberOfSeats: Number,
+
+    // Newly added
+    isrefundable:Boolean,
+    eventloc:String,
+    Ticketprice:Number,
+    Duration:String,
+
+
+
+
   
     // Third step data
     showFullName: Boolean,
@@ -76,6 +87,7 @@ const eventSchema = new mongoose.Schema({
 
      uniqueId: String,
      Password: String,
+     isVerified:Boolean,
      
      audience: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Audience' }],
      //

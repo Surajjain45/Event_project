@@ -1,4 +1,4 @@
-import Event_page from "../Event_page/event_page"
+// import Event_page from "../Event_page/event_page"
 import party_icon from './Event_assest/1.png'
 import meeting_icon from './Event_assest/2.png'
 import gaming_icon from './Event_assest/3.png'

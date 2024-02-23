@@ -2,9 +2,13 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+const session = require('express-session');
 var logger = require('morgan');
+// var session = require('express-session')
 
-var indexRouter = require('./routes/index');
+
+
+var indexRouter = require('./routes/index.js');
 var usersRouter = require('./routes/users');
 var createRouter = require('./routes/create');
 var loginPage = require('./routes/login');
@@ -12,9 +16,19 @@ var showEvent = require('./routes/showevents.js');
 var allEvent = require('./routes/allevents')
 var audienceReg = require('./routes/audience')
 var allAudience = require('./routes/allAudience.js')
+var news = require('./routes/new')
+var check = require('./routes/check.js')
+var verifyrouter = require('./routes/verify.js')
 const cors = require('cors');
 
+// let temporaryData = {}
 var app = express();
+app.use(session({
+  secret: 'your_session_secret',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // Set to true if using HTTPS
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,14 +42,33 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+// to create the event
 app.use('/api/events', createRouter);
+
+// to show the details of event
 app.use('/api/showevents', showEvent);
+
+// to find all events
 app.use('/api/allevents', allEvent);
+
+app.use('/new',news)
+
+// audience registering for an event
 app.use('/api/audience', audienceReg);
+
+
 app.use('/api/showaudience', allAudience);
+
+// organiser accessing its event
 app.use('/api/loginevents', loginPage);
+
+app.use('/check',check);
+
+app.use('/verify',verifyrouter)
 
 
 // catch 404 and forward to error handler
