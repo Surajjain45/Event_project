@@ -15,7 +15,7 @@ const  send_email = async (email,name,token)=>{
     service: 'gmail',
     auth: {
         user: 'suraj.2125cs1087@kiet.edu',
-        pass: 'Suraj@MIJEETEGA@RS'
+        pass: ''
     }
     })
 
