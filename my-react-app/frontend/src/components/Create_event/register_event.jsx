@@ -10,6 +10,8 @@ import { useFormik } from 'formik';
  import Event from './asset/Event.png'
  import Form from './asset/Form.png'
  import axios from 'axios'
+import { Link } from 'react-router-dom';
+import Verification from './verifcation';
 //  import bcrypt from 'bcryptjs'
 //  const bcrypt = require('bcrypt');
 
@@ -226,7 +228,7 @@ export default function RegisterEvent() {
     onSubmit: async () => {
       try {
         // Send data to the backend
-      //  await console.log(wholedata);
+       await console.log(wholedata);
        
         await axios.post('http://localhost:3000/api/events/create', wholedata);
 
@@ -234,6 +236,7 @@ export default function RegisterEvent() {
       } catch (error) {
         console.error('Failed to save event data:', error);
       }
+      // <Link to={Verification(wholedata)}></Link> 
     },
   });
 

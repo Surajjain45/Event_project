@@ -7,7 +7,9 @@ import RegisterEvent from "./components/Create_event/register_event"
 import Event_login from "./components/Event_login/Event_login"
 import LoginForm from "./components/Event_login/Event_login"
 import AudienceRegistration from "./components/audienceRegister/audienceRegister"
+import Verification from "./components/Create_event/verifcation"
 import showAudience from "./components/eventDashboard/eventDashboard"
+import Forgotpassword from "./components/Event_login/forgotpassword"
 
 import EventDashboard from './components/eventDashboard/eventDashboard';
 
@@ -44,6 +46,8 @@ function App() {
          <Route path= '/events_page/:uniqueId' element = {<Event_page/>}></Route>
          <Route path= '/book_ticket/:uniqueId' element = {<AudienceRegistration/>}></Route>
          <Route path="/dashboard" element= {<EventDashboard/>}></Route>
+         <Route path="/verify" element = {<Verification/>}></Route>
+         <Route path="/forgotpassword" element={<Forgotpassword/>}></Route>
     </Routes>
       
       {/* <Event_page/> */}

@@ -8,7 +8,7 @@ var session = require('express-session')
 
 // let temporaryData = require('../app.js')
 let temporaryData = {}
-const  send_email = async (email,name,token)=>{
+const  send_email = async (email,uniqueId,token)=>{
   try {
 
    const transporter = await nodemailer.createTransport({
@@ -23,7 +23,7 @@ const  send_email = async (email,name,token)=>{
       from: 'suraj.2125cs1087@kiet.edu',
       to: email,
       subject: 'Verification email',
-      html: `<p> new Please click <a href=http://localhost:3000/verify?token=${token}>here</a> to visit our website.</p>`  };
+      html: `<p> new Please click <a href=http://localhost:5173/verify?token=${token}&uniqueId=${uniqueId}>here</a> to visit our website.</p>`  };
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
@@ -50,14 +50,11 @@ exports.createEvent = async (req, res) => {
     // req.session.formData = { ...wholeData,Password:hashedpassword };
     // req.session.token = token;
     temporaryData[token] = { ...wholeData,Password:hashedpassword };
-    await send_email(req.body.organizerEmail,req.body.organizerName,token)
+    await send_email(req.body.organizerEmail,req.body.uniqueId,token)
     console.log("mail send")
 
 
-    // Store the form data and token in session
-
-    // console.log(req.session.formData)
-    // console.log(req.session.token)
+    res.status(200).json({tokenid:token})
     
   } catch (error) {
     console.error('Error saving event:', error);

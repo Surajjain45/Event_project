@@ -19,8 +19,8 @@ export default function Event_login() {
     },
 
     validationSchema: Yup.object({
-      uniqueId: Yup.string(),
-      Password: Yup.string(),
+      uniqueId: Yup.string().required(),
+      Password: Yup.string().required(),
     }),
 
     onSubmit: async (values) => {
@@ -117,7 +117,7 @@ export default function Event_login() {
           value= {formikstep1.values.Password}
           />
 
-          <a href='#' className='forgotpassword'>Forgot Password?</a>
+          <Link to="/forgotpassword"><p className='forgotpassword'>Forgot Password?</p></Link>
       
       
         {/* <div className="label">
@@ -149,6 +149,7 @@ export default function Event_login() {
                 
 
       <div className="btnss btns-stp1">
+       
       <button className="register_event" type="button">
          Haven't registered Event yet?
         </button>

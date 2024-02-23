@@ -44,7 +44,7 @@ router.post('/loginhere', async (req, res) => {
       res.status(200).json({ message: 'Authentication successful' });
       console.log();
     } else {
-      // Incorrect password
+      console.log("Wrong passwrd")
       res.status(401).json({ error: 'Invalid password' });
     }
   } catch (error) {

@@ -7,7 +7,7 @@ var logger = require('morgan');
 // var session = require('express-session')
 
 
-
+var forgotpassword = require('./routes/forgotpassword.js')
 var indexRouter = require('./routes/index.js');
 var usersRouter = require('./routes/users');
 var createRouter = require('./routes/create');
@@ -19,6 +19,7 @@ var allAudience = require('./routes/allAudience.js')
 var news = require('./routes/new')
 var check = require('./routes/check.js')
 var verifyrouter = require('./routes/verify.js')
+var password = require('./routes/password.js')
 const cors = require('cors');
 
 // let temporaryData = {}
@@ -69,6 +70,10 @@ app.use('/api/loginevents', loginPage);
 app.use('/check',check);
 
 app.use('/verify',verifyrouter)
+
+app.use('/password',password)
+
+app.use('/forgotpassword',forgotpassword)
 
 
 // catch 404 and forward to error handler

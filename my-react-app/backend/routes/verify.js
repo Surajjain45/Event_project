@@ -6,9 +6,10 @@ var eventController = require('../controllers/eventController')
 
 router.get('/',async(req,res)=>{
     
+    console.log("Verifying...")
     const temporaryData = eventController.getTemporaryData();
     try {
-        const { token } = req.query;
+        const { token,uniqueId } = req.query;
         const userData = temporaryData[token];
         console.log(token)
         // console.log('session',
@@ -24,8 +25,8 @@ router.get('/',async(req,res)=>{
       // const newEvent = new EventModel(req.body);
       await newEvent.save();
       // console.log('WOOOKRINggg')
-      res.status(201).json({ message: 'Event saved successfully' });
-        console.log('Form data:', req.session.formData);
+      res.status(201).json({ issaved: true });
+       
 
         // Remove the form data and token from session
         // delete req.session.formData;
