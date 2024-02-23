@@ -1,0 +1,58 @@
+/* *{
+margin: 0%;
+padding: 0%;
+background-color: aliceblue;
+
+} */
+
+.wholepage{
+    width:100%;
+    color: black;
+}
+
+.mainheading h1{
+    font-size: 5vh;
+    
+}
+
+.idclass{
+    color:blue;
+}
+
+.wholepage label{
+    border: solid red;
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
+    font-size: 2vw;
+    font-weight: 600;
+    
+}
+.wholepage input{
+    border: none;
+    
+}
+
+.wholeformsection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formsection{
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* margin: 2%; */
+    /* padding: 3%; */
+    width: 100%;
+    border: solid pink;
+    /* align-content: space-between; */
+    height: 40vh;
+}
+
+.submitbutton {
+    color: pink;
+    border: solid blue;
+}

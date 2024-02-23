@@ -131,7 +131,7 @@ console.log(eventDetails)
                     Feel free to contact for any query
                   </div>
                   <div className="about_organiser_des">
-                    <underline>{eventDetails.organizerPhone}</underline> <bold> | </bold> <underline>{eventDetails.organizerEmail}</underline>
+                    {eventDetails.organizerPhone} <bold> | </bold> <underline>{eventDetails.organizerEmail}</underline>
                   </div>
 
                   <div className="profile_icons">

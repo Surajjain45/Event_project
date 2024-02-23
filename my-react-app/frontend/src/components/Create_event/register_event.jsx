@@ -18,6 +18,7 @@ import { useFormik } from 'formik';
 export default function RegisterEvent() {      
 
   function generateUniqueID(email, eventName) {
+
     const uniqueId = `${email.split('@')[0]}_${eventName}`;
     // You might want to further hash the unique ID for security
     console.log("step 1 wokring");
@@ -69,6 +70,7 @@ export default function RegisterEvent() {
       eventdate: '20:10:2024',
       eventtime: '',
       eventcat: [],
+      // selectedOption: '',
       // eventcapacity: 0,
     },
   
@@ -155,33 +157,34 @@ export default function RegisterEvent() {
     // password: hashPassword(formikstep1.values.email),
   };
 
-console.log(wholedata);
+// console.log(wholedata);
 
   const formikstep4 = useFormik({
 
     // console.log("karaannn");
-    // initialValues: {
-    //   // Initialize with default values or empty strings
-    //   organizerName: '',
-    //   organizerEmail: '',
-    //   organizerPhone: '',
-    //   eventName: '',
-    //   eventDescription: '',
-    //   eventMode: '',
-    //   eventDate: '',
-    //   eventCategory: '',
-    //   numberOfSeats: 0,
-    //   showFullName: false,
-    //   showEmail: false,
-    //   showCollegeName: false,
-    //   showPhoneNumber: false,
-    //   uniqueId: '',
-    //   // password: '',
-    // },
-    onSubmit: async () => {
+    initialValues: {
+      // Initialize with default values or empty strings
+      organizerName: '',
+      organizerEmail: '',
+      organizerPhone: '',
+      eventName: '',
+      eventDescription: '',
+      eventMode: '',
+      eventDate: '',
+      eventCategory: '',
+      numberOfSeats: 0,
+      showFullName: false,
+      showEmail: false,
+      showCollegeName: false,
+      showPhoneNumber: false,
+      uniqueId: '',
+      // password: '',
+    },
+    onSubmit: async (values) => {
       try {
         // Send data to the backend
       //  await console.log(wholedata);
+
        
         await axios.post('http://localhost:3000/api/events/create', wholedata);
 
@@ -195,27 +198,28 @@ console.log(wholedata);
       
       const [CurrentIndex , setCurrentIndex] = useState(1);
       
-      // const  next = (e)=>{
+      const  next = (e)=>{
 
-      //   e.preventDefault();
+        e.preventDefault();
         
-      //   console.log("submitted step 1")
-      //   if(CurrentIndex != 4){
-      //     setCurrentIndex(CurrentIndex + 1);
-      //   }
+        console.log("submitted step 1")
+        if(CurrentIndex != 4){
+          setCurrentIndex(CurrentIndex + 1);
+        }
         
-      //   console.log(CurrentIndex);
-      // }
+        console.log(CurrentIndex);
+      }
      
       
 
+      
       function back(){
         if(CurrentIndex != 1){
           setCurrentIndex(CurrentIndex - 1);
         }
         console.log(CurrentIndex);
       }
-      
+
       
       return ( 
         

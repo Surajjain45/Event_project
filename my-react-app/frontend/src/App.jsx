@@ -21,15 +21,15 @@ function Home(){
 
   return(
     <>
+     {/* <Buttonpages/> */}
     <Hero/>
      <Features/>
-     <Events/>
+    <Events/>
      <RegisterEvent/>
      <Event_login/>
-     {/* <Buttonpages/> */}
-     <LoginForm/>
+    <LoginForm/>
      <AudienceRegistration/>
-     <showAudience/>
+     {/* <showAudience/> */}
   
     </>
   )

@@ -35,9 +35,10 @@ router.post('/register', async (req, res) => {
     // Update the event with the audience reference
 
     // const document = await Event.findOne({ uniqueId: uniqueId }).populate('audience');;
-    const document = await Event.findOne({ uniqueId:eventId.uniqueId });
+    const document = await Event.findOne({ uniqueId:eventId });
     const id = document._id;
     if (!document) throw 'Document not found';
+    // else console.log("found");
 
     const updatedEvent = await Event.findByIdAndUpdate(
         id,
