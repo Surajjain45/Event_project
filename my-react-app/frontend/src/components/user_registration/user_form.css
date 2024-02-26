@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/csss2?family=Arimo:wght@700&family=Croissant+One&family=Kanit:wght@600;800;700&family=Nunito+Sans:opsz,wght@6..12,600&family=Pacifico&family=Poppins:wght@300;400;500;600;800;900&family=Roboto&family=Sigmar&family=Skranji:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --yellow: #FFCA1D;
+    --dark-blue: #2B3377;
+    --blue: #4B4AEF;
+    --blackish:#585858;
+}
+
+.user{
+    width: 300px;
+}
+
+.error{
+    color: red;
+    font-size: 0.8rem;
+}

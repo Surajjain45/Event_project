@@ -1,17 +1,17 @@
 import './Events_display.css'
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import Event_details from './Event_details'
 // import Event_page from '../Event_page/event_page.jsx'
-import image1 from './Event_assest/Group 93.png'
-import image2 from './Event_assest/Rectangle 42.png';
-import image3 from './Event_assest/Rectangle 43.png'
-import image4 from './Event_assest/Rectangle 44.png'
-import party_icon from './Event_assest/1.png'
+// import image1 from './Event_assest/Group 93.png'
+// import image2 from './Event_assest/Rectangle 42.png';
+// import image3 from './Event_assest/Rectangle 43.png'
+// import image4 from './Event_assest/Rectangle 44.png'
+// import party_icon from './Event_assest/1.png'
 import { Link } from 'react-router-dom';
 // import { set } from '../../../../backend/app';
 // IF NOT WORKING TRY UNCOMMENTING ABOVE CODE . Q) WHY I USED SET HER FOR???
 
-const imageComponentsArray = [image1 , image2, image3 , image4];
+// const imageComponentsArray = [image1 , image2, image3 , image4];
 
 export default function Events(){
 

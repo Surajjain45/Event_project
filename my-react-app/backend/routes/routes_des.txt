@@ -1,0 +1,23 @@
+allevents.js
+
+It is to find all the events and send it to the expolore events page
+3 info is required
+
+create.js
+
+It is acting as a intermediate
+it is used in creating the event, api is posting the data through eventcontroller
+
+
+/api/showevents
+
+It is used to fetch a single element acc.to unique id which is return in param in routing
+It is fetched in eventpage.jsx which is showing the complete details of event
+
+eventpage.jsx is routed when an event is selected from a explore events page
+
+/api/audience
+It is used to register the audience in audience model and also saving the audience id to
+event database to which it belongs
+it is used in audienceRegister.jsx when audience clicks on book ticket so it changes the route
+and this component call this api to save the details.

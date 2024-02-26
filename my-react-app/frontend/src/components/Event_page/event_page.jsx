@@ -1,5 +1,5 @@
 import './event_page.css'
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 // import image1 from './Event_assest/Frame 5.png'

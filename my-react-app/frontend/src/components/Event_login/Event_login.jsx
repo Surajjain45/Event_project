@@ -31,6 +31,8 @@ export default function Event_login() {
         const response = await axios.post('http://localhost:3000/api/loginevents/loginhere', values);
         // const response = await axios.post('http://localhost:3000/api/events/create', values);
         console.log(values);
+        console.log(response)
+        console.log(response.data)
 
         // Handle successful authentication, e.g., redirect to the dashboard
         console.log('Authentication successsssful', response.data);

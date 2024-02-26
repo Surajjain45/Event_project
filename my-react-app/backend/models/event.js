@@ -68,6 +68,16 @@ const eventSchema = new mongoose.Schema({
     eventDate: Date,
     eventCategory: String,
     numberOfSeats: Number,
+
+    // Newly added
+    isrefundable:Boolean,
+    eventloc:String,
+    Ticketprice:Number,
+    Duration:String,
+
+
+
+
   
     // Third step data
     showFullName: Boolean,
@@ -77,6 +87,7 @@ const eventSchema = new mongoose.Schema({
 
      uniqueId: String,
      Password: String,
+     isVerified:Boolean,
      
      audience: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Audience' }],
      //
