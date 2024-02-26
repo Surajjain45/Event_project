@@ -9,7 +9,9 @@ import LoginForm from "./components/Event_login/Event_login"
 import AudienceRegistration from "./components/audienceRegister/audienceRegister"
 import showAudience from "./components/eventDashboard/eventDashboard"
 
-import EventDashboard from './components/eventDashboard/eventDashboard';
+import EventDashboard from './components/eventDashboard/eventDashboard'
+import Success from './components/successPage/success'
+import Cancel from './components/cancelPage/cancel'
 
 // import ModalComponent from "./components/Event_login/Event_login"
 // import Buttonpages from "./components/Event_login/Event_login"
@@ -44,6 +46,9 @@ function App() {
          <Route path= '/events_page/:uniqueId' element = {<Event_page/>}></Route>
          <Route path= '/book_ticket/:uniqueId' element = {<AudienceRegistration/>}></Route>
          <Route path="/dashboard" element= {<EventDashboard/>}></Route>
+         <Route path="/success" element= {<Success/>}></Route>
+         <Route path="/cancel" element= {<Cancel/>}></Route>
+         <Route path="/dashboard" element = {<EventDashboard/>}></Route>
     </Routes>
       
       {/* <Event_page/> */}

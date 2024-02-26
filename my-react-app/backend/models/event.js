@@ -10,8 +10,8 @@ const { MongoClient } = require('mongodb');
 //     console.log('Connection Succesfudmll');
 // }).catch((err) => console.log('NO Connection hereee , err:', err));
 // mongoose.connect("mongodb+srv://karanverma:karanverma@eventcluster.blixsin.mongodb.net/")
-// mongoose.connect("mongodb://localhost:27017/eventDetail")
-mongoose.connect("mongodb+srv://pass:pass@eventcluster.blixsin.mongodb.net/")
+mongoose.connect("mongodb://localhost:27017/eventDetail")
+// mongoose.connect("mongodb+srv://pass:pass@eventcluster.blixsin.mongodb.net/")
 .then(() => {
     console.log('COnntedd!!!');
 })

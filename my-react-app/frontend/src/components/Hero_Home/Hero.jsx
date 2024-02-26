@@ -16,7 +16,7 @@ export default function Hero(){
                   </ul>
               </div>
 
-              <button className='btns event_btn'>Your Event</button>
+              <button className='btns event_btn'>Explore</button>
 
           </div>
 
@@ -28,7 +28,7 @@ export default function Hero(){
 
           <div className="Hero_buttons">
             <button className='btns'>Create Event</button>
-            <button className='btns'>See Your Event</button>
+            <button className='btns'>Login into Event</button>
           </div>
       </>
     )

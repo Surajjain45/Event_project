@@ -8,26 +8,53 @@ const Audience = require('../models/Audience');
 // Route to register an audience for a specific event
 router.post('/register', async (req, res) => {
   console.log("till herrree")
-  const { name, email, phone, eventId } = req.body;
+  const { user, eventId} = req.body;
 //   const name = req.params.name;
-  console.log(name);
+
+console.log(user.name);
+const name = user.name;
 //   const email = req.params.email;
-  console.log(email);
+console.log(user.email);
+const email = user.email;
 //   const phone = req.params.phone;
-  console.log(phone);
+console.log(user.phone);
+const phone = user.phone;
 //   const eventId = req.params.eventId;
-  console.log(eventId);
+console.log(eventId);
+const eventID = eventId;
   const checkin = false;
+
+  const qrCodeUrl = JSON.stringify({ user, eventId });
+
   // added this^^^
   
   try {
     // Create and save the audience document
     console.log("working 1")
-    const audience = new Audience({ name, email, phone , checkin});
+    const audience = new Audience({ name, email, phone , checkin , eventID, qrCodeUrl});
     //                                          added this^^^(, checkin)
-    console.log("working 2")
+
+
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    const existingAudience = await Audience.findOne({
+      name,
+      email,
+      phone,
+      eventID,
+    });
+  
+    if (existingAudience) {
+      console.log('Duplicate tickets created not allowed');
+      return res
+        .status(400)
+        .json({ error: 'Duplicate tickets creating not allowed' });
+    }
+
+
+    // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^CHECK FOR DUPLICATE REGISTRATION IN DATABASE
+
+
     const savedAudience = await audience.save();
-    console.log("working 3")
     console.log("saved id", savedAudience._id)
 
     console.log("event ID", eventId)

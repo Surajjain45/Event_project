@@ -4,12 +4,12 @@ import { useFormik } from 'formik';
  import axios from 'axios';
 //  import { useHistory } from 'react-router-dom'; 
  import { Link } from 'react-router-dom';
+ import { useNavigate } from 'react-router-dom';
 
 export default function Event_login() {
 
   // console.log("helloooo from loginn")
-
-  // const history = useHistory();
+  const navigate = useNavigate();
 
 
   const formikstep1 = useFormik({
@@ -32,10 +32,16 @@ export default function Event_login() {
         // const response = await axios.post('http://localhost:3000/api/events/create', values);
         console.log(values);
         console.log(response)
-        console.log(response.data)
+        console.log("respomse : " , response.data)
 
         // Handle successful authentication, e.g., redirect to the dashboard
+        navigate('/dashboard', { state: { eventId: values.uniqueId, password: values.Password } });
+        // history.push('/dashboard');
+        // history.push('/dashboard', { eventId: values.uniqueId, password: values.Password});
         console.log('Authentication successsssful', response.data);
+
+
+
 
         // history.push('/dashboard');
       } catch (error) {

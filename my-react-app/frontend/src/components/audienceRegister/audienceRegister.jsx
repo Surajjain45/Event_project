@@ -8,9 +8,26 @@ import './audienceRegister.css';
  import * as Yup from 'yup';
  import Sidebar from '../Create_event/sidebar_component';
  import axios from 'axios'
+ import {loadStripe} from '@stripe/stripe-js';
 
 const AudienceRegistration = () => {
   const { uniqueId } = useParams();
+
+  const [eventDetails, setEventDetails] = useState(null);
+  
+  // console.log("hey2  ", uniqueId);
+  useEffect(() => {
+    // Fetch event details from the backend using uniqueId
+    fetch(`http://localhost:3000/api/showevents/${uniqueId}`)
+      .then((response) => response.json())
+      .then((data) => setEventDetails(data))
+      .catch((error) => console.error('Error fetching event details:', error));
+  }, [uniqueId]);
+  
+  console.log("event dataa :" , eventDetails);
+  // console.log(eventDetails.Ticketprice);
+  // const oneticketprice = eventDetails.Ticketprice;
+  // console.log("ticket :" , oneticketprice);
   console.log("uniwuw: " , uniqueId);
 
 
@@ -69,40 +86,52 @@ const AudienceRegistration = () => {
 
       console.log("going to submission");
       console.log(values);
-      try {
-        const users = values.users;
+      const users = values.users;
 
-        console.log(users);
-        
-        for (const user of users) {   
-          try {
-              user.eventId = uniqueId;
-            console.log(user);
-            // Send a POST request to register the audience for the event
-            // http://localhost:3000/api/events/create
-            const response = await fetch(`http://localhost:3000/api/audience/register`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(user),
-            });
+      console.log(users);
+      // THIS FOR LOOP WILL ADD A PRICE TO EACH PRICE TO EACH AUDIENCE.
+      // for(const eachuser of users){
+      //   eachuser.price = 100;
+      // }
+
+      // try {
+
+     
+
+      const stripe = await loadStripe("pk_test_51OlwghSExm8g8tzT7NnJVd3d24iCzeayzN3lu18ZRI0EGImEBpJIkamyMojp46w7mN6BLUjaCYqVl3BDzKTIML6s00psFLIrt9")
+
+      console.log("quantity: " , users.length)
+      const body = {
+        audienceData : users,
+        price: 100,
+        eventId: uniqueId,
+        amountt: users.length,
+      }
+      // console.log("quantity: " , body.quan)
+
+      const header = {
+        "Content-Type" : "application/json"
+      }
+      let response= await fetch("http://localhost:3000/api/paymentcheckout" , {
+        method: "POST" , 
+        headers: header,
+        body: JSON.stringify(body)
+      });
+
+      if(response.ok){
+        console.log("working: checkout response");
+      }
+
+      const session = await response.json();
+
+      const result = stripe.redirectToCheckout({
+            sessionId: session.id
+      });
+
+      if(result.sucess){
     
-            if (response.ok) {
-              console.log('Audience registered successfully');
-            } else {
-              console.error('Failed to register audience');
-            }
-          } catch (error) {
-            console.error('Error registering audience:', error);
-          }
-    
-    }
-      // resetForm();
-    
-    } catch (error) {
-      console.error('Error processing form submission:', error);
-    }
+      }
+    // }
   },
   });
 
@@ -360,6 +389,7 @@ const AudienceRegistration = () => {
         {/* <div id="minus">-</div> */}
     <input type="number" id="number"
     name="ticketCount"
+    min="1" max="11"
    onChange={formikstep1.handleChange}
     onBlur={formikstep1.handleBlur}
      value= {formikstep1.values.ticketCount} 
@@ -422,7 +452,7 @@ const AudienceRegistration = () => {
 
 
       <div className="label">
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email:<h6>Please use valid email because you will get your ticket through this  email address.</h6></label>
           {/* {formikstep2.touched.email && formikstep2.errors.email && (
           <p className="error">{formikstep2.errors.email}</p>
           )} */}
@@ -481,7 +511,7 @@ const AudienceRegistration = () => {
           Go Back
         </button>
         <button className="next-stp" type="submit">
-          SUbmit
+          CHECK-OUT
         </button>
       </div>
 
