@@ -1,0 +1,7 @@
+.sidebar{
+    display: none;
+}
+
+.open{
+    display: flex;
+}

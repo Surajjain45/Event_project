@@ -24,6 +24,7 @@ router.get('/',async(req,res)=>{
         const newEvent = new EventModel(userData);
       // const newEvent = new EventModel(req.body);
       await newEvent.save();
+      console.log("Data saved")
       // console.log('WOOOKRINggg')
       res.status(201).json({ issaved: true });
        

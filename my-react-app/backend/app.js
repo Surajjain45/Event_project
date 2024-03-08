@@ -20,6 +20,7 @@ var news = require('./routes/new')
 var check = require('./routes/check.js')
 var verifyrouter = require('./routes/verify.js')
 var password = require('./routes/password.js')
+var dashboard_update = require('./routes/dashboard_update.js')
 const cors = require('cors');
 
 // let temporaryData = {}
@@ -74,6 +75,8 @@ app.use('/verify',verifyrouter)
 app.use('/password',password)
 
 app.use('/forgotpassword',forgotpassword)
+
+app.use('/dashboard',dashboard_update)
 
 
 // catch 404 and forward to error handler

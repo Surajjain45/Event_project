@@ -13,6 +13,22 @@ export default function Verification() {
     const uniqueId = queryParams.uniqueId;
     console.log("It is the token", token);
 
+    useEffect(() => {
+        const verifyToken = async () => {
+            try {
+                if (token) {
+                    let response = await fetch(`http://localhost:3000/verify?token=${token}&uniqueId=${uniqueId}`);
+                    setIsverified(true);
+                    console.log("verified");
+                }
+            } catch (error) {
+                console.log("Failed to verify the token", error);
+            }
+        };
+
+        verifyToken(); // Call verifyToken only once when the component mounts
+    }, [token]);
+
        
     const formik = useFormik({
         initialValues: {

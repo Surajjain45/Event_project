@@ -13,7 +13,8 @@ router.post('/',async(req,res)=>{
 
    const user =await EventModel.findOne({uniqueId:uniqueId})
 //    user.$set({Password:password})
-console.log('old',user.Password)
+if(user){
+    console.log('old',user.Password)
 password = await hashPassword(password)
 // console.log
 
@@ -22,6 +23,11 @@ console.log('This is the user',user)
     { uniqueId: uniqueId }, // Filter
     { $set: { Password: password} } // Update
 );
+}
+
+else{
+    console.log("user does not exist")
+}
 // console.log(result)
 })
 

@@ -12,6 +12,8 @@ import showAudience from "./components/eventDashboard/eventDashboard"
 import Forgotpassword from "./components/Event_login/forgotpassword"
 
 import EventDashboard from './components/eventDashboard/eventDashboard';
+import Dashboard from './components/eventDashboard/overview'
+import Add_ticket from "./components/eventDashboard/Addtickets"
 
 // import ModalComponent from "./components/Event_login/Event_login"
 // import Buttonpages from "./components/Event_login/Event_login"
@@ -45,7 +47,8 @@ function App() {
          <Route exact path='/' element={<Home/>}></Route>
          <Route path= '/events_page/:uniqueId' element = {<Event_page/>}></Route>
          <Route path= '/book_ticket/:uniqueId' element = {<AudienceRegistration/>}></Route>
-         <Route path="/dashboard" element= {<EventDashboard/>}></Route>
+         <Route path="/dashboard/:uniqueId" element= {<Dashboard/>}></Route>
+         <Route path="/dashboard/:uniqueId/addtickets" element={<Add_ticket/>}></Route>
          <Route path="/verify" element = {<Verification/>}></Route>
          <Route path="/forgotpassword" element={<Forgotpassword/>}></Route>
     </Routes>
