@@ -10,7 +10,7 @@ const  send_email = async (email,uniqueId,token)=>{
       service: 'gmail',
       auth: {
           user: 'suraj.2125cs1087@kiet.edu',
-          pass: 'Suraj@MIJEETEGA@RS'
+          pass: ''
       }
       })
   
