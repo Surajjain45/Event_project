@@ -1,24 +1,58 @@
-import React from 'react';
-import './Sidebar.css'; // Import your CSS file
+import React, { useState } from 'react';
+import { Link, useParams } from 'react-router-dom'; // Assuming you're using React Router
+import './Sidebar.css'
+import { useLocation } from 'react-router-dom';
 
-const Sidebar = ({ isOpen, onClose, onItemClick ,uniqueId}) => {
+const Sidenav = ({ isOpen, toggleSidebar, closeSidebar }) => {
 
-    Eventinfo = 
-    audidienceinfo =
-    scanner =
-    
+ 
+            const location = useLocation();
+            const { uniqueId } = useParams();
+            console.log(location.pathname)
+           let split_string = location.pathname.split("/")
+           console.log(split_string)
+          
+          // # Access the last element of the split_string, which contains "event_details"
+          let text = split_string[3]
+          console.log(text)
+
+  
+
 
   return (
+    <>
+      
     <div className={`sidebar ${isOpen ? 'open' : ''}`}>
-      <h2>Dashboard</h2>
-      <ul>
-       <Link to=''><li><a href="#" onClick={() => {onItemClick('home'); onClose()}}>Home</a></li></Link> 
-       <Link to=''></Link> <li><a href="#" onClick={() => {onItemClick('analytics'); onClose()}}>Analytics</a></li>
-       <Link to=''></Link> <li><a href="#" onClick={() => {onItemClick('reports'); onClose()}}>Reports</a></li>
-       <Link to=''></Link> <li><a href="#" onClick={() => {onItemClick('settings'); onClose()}}>Settings</a></li>
-      </ul>
+    <button onClick={toggleSidebar} className="toggle-btn">
+        {isOpen ? 'Close' : 'Open'} Sidebar
+      </button>
+      <div className="sidebar-content">
+        <ul>
+        <Link to={`/dashboard/${uniqueId}`} onClick={closeSidebar}
+            >
+          <li className={text===undefined?'active_link':''}>
+            
+              Overview
+          </li>
+            </Link>
+            <Link to={`/dashboard/${uniqueId}/event_details`} onClick={closeSidebar}>
+          <li className={text==='event_details'?'active_link':''}>
+              Event Details
+          </li>
+            </Link>
+            <Link to={`/dashboard/${uniqueId}/audience`} onClick={closeSidebar}>
+          <li className={text==='audience'?'active_link':''}>
+              Audience
+          </li>
+            </Link>
+        </ul>
+      </div>
     </div>
+    </>
   );
 };
 
-export default Sidebar;
+export default Sidenav;
+
+
+           

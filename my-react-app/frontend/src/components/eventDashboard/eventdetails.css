@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Croissant+One&family=Kanit:wght@600;800;700&family=Nunito+Sans:opsz,wght@6..12,600&family=Pacifico&family=Poppins:wght@300;400;500;600;800;900&family=Roboto&family=Sigmar&family=Skranji:wght@700&display=swap');
+
+
+:root{
+    --yellow: #FFCA1D;
+    --dark-blue: #2B3377;
+    --blue: #4B4AEF;
+    --blackish:#585858;
+}
+
+.event_details_page{
+    display: flex;
+    position: relative;
+    top: 100px;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 8px;
+    margin: 20px 0px;
+    
+}
+
+.one_detail{
+    font-size: 1.2rem;
+    display: flex;
+    padding: 5px 10px;
+    font-family: 'Nunito Sans' sans-serif;
+   color: var(--dark-blue);
+}
+.answer{
+    margin: 0 8px;
+    padding: 0px 9px;
+    border: 2px solid black;
+    border-radius: 5px;
+}

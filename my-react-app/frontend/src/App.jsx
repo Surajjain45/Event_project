@@ -8,12 +8,17 @@ import Event_login from "./components/Event_login/Event_login"
 import LoginForm from "./components/Event_login/Event_login"
 import AudienceRegistration from "./components/audienceRegister/audienceRegister"
 import Verification from "./components/Create_event/verifcation"
-import showAudience from "./components/eventDashboard/eventDashboard"
 import Forgotpassword from "./components/Event_login/forgotpassword"
 
-import EventDashboard from './components/eventDashboard/eventDashboard';
-import Dashboard from './components/eventDashboard/overview'
-import Add_ticket from "./components/eventDashboard/Addtickets"
+// import Event_details from "./components/Events_display/Event_details"
+// import Eventdashboard_mui from "./components/eventDashboard/eventDashboard_mui"
+import Eventdashboard from './components/eventDashboard/eventDashboard';
+import Event_details from "./components/eventDashboard/Eventdetails"
+import Audience from "./components/eventDashboard/Audiences"
+import Update_details from "./components/eventDashboard/Update_details"
+import Overview from "./components/eventDashboard/Overview"
+
+
 
 // import ModalComponent from "./components/Event_login/Event_login"
 // import Buttonpages from "./components/Event_login/Event_login"
@@ -42,20 +47,28 @@ function Home(){
 function App() {
   return (
     <>
-    
+    {/* <BrowserRouter> */}
     <Routes>
+     
+         {/* <Route path="/new" element = {<New/>}></Route> */}
          <Route exact path='/' element={<Home/>}></Route>
          <Route path= '/events_page/:uniqueId' element = {<Event_page/>}></Route>
          <Route path= '/book_ticket/:uniqueId' element = {<AudienceRegistration/>}></Route>
-         <Route path="/dashboard/:uniqueId" element= {<Dashboard/>}></Route>
-         <Route path="/dashboard/:uniqueId/addtickets" element={<Add_ticket/>}></Route>
-         <Route path="/verify" element = {<Verification/>}></Route>
-         <Route path="/forgotpassword" element={<Forgotpassword/>}></Route>
-    </Routes>
-      
-      {/* <Event_page/> */}
+         <Route path="/dashboard/:uniqueId" element= {<Eventdashboard/>}>
+            <Route index element={<Overview/>}></Route>
+            <Route path="/dashboard/:uniqueId/event_details" element={<Event_details/>}></Route>
+            <Route path="/dashboard/:uniqueId/audience" element={<Audience/>}></Route>
+            <Route path="/dashboard/:uniqueId/update_details" element={<Update_details/>}></Route>
 
-      {/* <Event_page/> */}
+          </Route>      
+         <Route path="/verify" element = {<Verification/>}></Route>
+        
+
+         <Route path="/forgotpassword" element={<Forgotpassword/>}></Route>
+         
+    </Routes>
+    {/* </BrowserRouter> */}
+    
 
     </>
   )

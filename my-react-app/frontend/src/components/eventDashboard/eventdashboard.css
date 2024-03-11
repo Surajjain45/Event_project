@@ -1,0 +1,31 @@
+.page{
+    display: flex;
+    flex-direction: column;  
+}
+
+body{
+
+    /* background: linear-gradient(180deg, #0f0c29, #302b63, #24243e); */
+}
+.outlet{
+    position: relative;
+    left:100px;
+    transition : left 0.3s ease;
+}
+
+
+.dashboard_navbar{
+    display: flex;
+    position: fixed;
+    margin: 5px 10px;
+    background-color: blue;
+    z-index: 100;
+    padding: 5px 15px;
+    top: 0;
+    left: 150px;
+    transition: left 0.3s ease;
+}
+.open{
+    /* background-color: red; */
+    left:250px
+}

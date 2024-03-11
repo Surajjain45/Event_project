@@ -1,28 +1,15 @@
-import React, { useState } from 'react';
-import Sidebar from './sidebar';
+// Section.js
 
-const Dashboard = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+import React from 'react';
 
-  const handleSidebarToggle = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
-
-  const handleItemClick = (item) => {
-    console.log("Selected item:", item);
-    // Add logic here to open the selected tab
-  };
-
+function Overview() {
   return (
-    <div>
-      <button onClick={handleSidebarToggle}>Three dots</button>
-      <Sidebar isOpen={isSidebarOpen} onClose={handleSidebarToggle} onItemClick={handleItemClick} />
-      <div className="content">
-        {/* Your dashboard content goes here */}
-        <h1>Welcome to the Dashboard!</h1>
-      </div>
+    <div >
+      <h2>Overview Title</h2>
+      <p>This is the content of the Overview.</p>
     </div>
   );
-};
+}
 
-export default Dashboard;
+export default Overview;
+

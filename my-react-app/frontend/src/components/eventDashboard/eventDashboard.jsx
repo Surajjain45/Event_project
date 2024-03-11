@@ -1,48 +1,56 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
-import { navlinks } from './navlinkes';
+import {Link, Outlet} from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import { useState ,useEffect} from 'react';
+import './eventdashboard.css'
+import Sidenav from './sidebar'
+import './eventdashboard.css'
 
 
-export default function EventDashboard(){
-    const [audienceData, setAudienceData] = useState([]);
-    const { uniqueId } = useParams();
-    console.log(uniqueId)
+export default function Eventdashboard(){
+  let { uniqueId } = useParams();
+  const [isOpen, setIsOpen] = useState(false);
+  const [eventDetails, setEventDetails] = useState(null);
 
-  // useEffect(() => {
+  useEffect(() => {
+    // Fetch event details from the backend using uniqueId
+    fetch(`http://localhost:3000/api/showevents/${uniqueId}`)
+      .then((response) => response.json())
+      .then((data) => setEventDetails(data))
+      .catch((error) => console.error('Error fetching event details:', error));
+  }, [uniqueId]);
 
+  if (!eventDetails) {
+    return <p>Loading...</p>;
+  }
 
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
 
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(`http://localhost:3000/api/showaudience/${uniqueId}`);
-  //       console.log(uniqueId)
-  //       setAudienceData(response.data);
-  //     } catch (error) {
-  //       console.error('Error fetching audience data:', error);
-  //     }
-  //   };
+  const closeSidebar = () => {
+    setIsOpen(false);
+  };
 
-  //   fetchData();
-  // }, [uniqueId]);
+  console.log("eventdetails",eventDetails)
+  return (
+    <>
+      <Sidenav isOpen={isOpen} toggleSidebar={toggleSidebar} closeSidebar={closeSidebar} />
+      <div className="page">
 
- 
-const add_ticket_link = `/dashboard/${uniqueId}/addtickets`
-
-
-    return (
-        <>
-       <h2>Hi! Name sraj</h2>
-
-       <nav>
-        {
-          navlinks.map((item)=>(
-            <Link to = {item.to} key={uniqueId}><button>{item.title}</button></Link>
-          ))
-        }
-       </nav>
-       <h4>It is tough</h4>
-       <Link to = {add_ticket_link}><button>Add tickets</button></Link>
-        </>
-    )
+      
+      <div className={isOpen === true ? 'open dashboard_navbar' : 'dashboard_navbar'}>
+        {!isOpen && 
+          <button onClick={toggleSidebar}>
+            open
+          </button>}
+        <h2>Hi {eventDetails.organizerName}</h2>
+      </div>
+      <div className={isOpen === true ? 'outlet open' : 'outlet'}>
+        <Outlet/>
+      </div>
+      </div>
+    </>
+  )
 }
+
+// Exporting eventDetails

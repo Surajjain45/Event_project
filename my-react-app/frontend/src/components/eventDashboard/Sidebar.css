@@ -1,7 +1,51 @@
-.sidebar{
-    display: none;
-}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: left 0.3s ease;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .toggle-btn {
+    position: absolute;
+    top: 10px;
+    right: -50px; /* Adjust this value as needed */
+    background-color: #555;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .sidebar-content {
+    padding-top: 50px; /* Adjust this value to make space for the button */
+  }
+  
+  .sidebar .sidebar-content ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar .sidebar-content ul li {
+    padding: 10px;
+  }
+  
+  .sidebar .sidebar-content ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .sidebar .sidebar-content ul li a:hover {
+    text-decoration: underline;
+  }
 
-.open{
-    display: flex;
-}
+  .active_link{
+   background-color: red;
+  }
+  
