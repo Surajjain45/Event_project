@@ -1,6 +1,7 @@
 const express = require("express")
 const router = express.Router()
 const nodemailer = require("nodemailer")
+const EventModel = require("../models/event")
 
 const  send_email = async (email,uniqueId,token)=>{
     try {
@@ -10,7 +11,7 @@ const  send_email = async (email,uniqueId,token)=>{
       service: 'gmail',
       auth: {
           user: 'suraj.2125cs1087@kiet.edu',
-          pass: ''
+          pass: 'Suraj@MIJEETEGA@RS'
       }
       })
   
@@ -36,12 +37,35 @@ const  send_email = async (email,uniqueId,token)=>{
 
   router.post('/',async(req,res)=>{
     try {
+
+
         const email = req.body.email;
     const uniqueId = req.body.uniqueId
-    await send_email(email,uniqueId)
-    console.log("mail send")
+
+    console.log(uniqueId)
+
+    const user = await EventModel.findOne({
+      uniqueId
+    })
+
+    if(!user){
+      res.send({message:'wrong uniqueId'})
+    }
+    
+    else{
+      if(user.organizerEmail===email){
+        await send_email(email,uniqueId)
+        res.send({message:'success'})
+      }
+
+      else{
+        res.send({message:'Does not Match'})
+      }
+    }
+   
     } catch (error) {
-        console.log(error,'error sending mail')
+      console.log("this is the main")
+      res.send({message:'failed'})
     }
   })
 

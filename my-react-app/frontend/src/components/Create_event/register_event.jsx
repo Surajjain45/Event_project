@@ -216,6 +216,7 @@ export default function RegisterEvent() {
       eventDescription: '',
       eventMode: '',
       eventDate: '',
+      Duration:'',
       eventCategory: '',
       numberOfSeats: 0,
       showFullName: false,

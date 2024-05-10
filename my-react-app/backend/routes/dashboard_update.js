@@ -1,69 +1,96 @@
 const express = require("express")
 const router = express.Router()
 // const event = '../models/event'
+const bcrypt = require('bcrypt')
+const crypto = require('crypto')
 const EventModel = require("../models/event")
+const { Experimental_CssVarsProvider } = require("@mui/material")
 
-router.post('/:uniqueId/add_tickets',async(req,res)=>{
+async function hashPassword(password) {
+    const saltRounds = 10;
+    return bcrypt.hash(password, saltRounds);
+  }
+
+router.post('/update',async(req,res)=>{
 
     try {
-        const uniqueId=req.params;
+        const uniqueId = req.body.uniqueId
+        console.log("aagya")
+        console.log(uniqueId)
         const data = req.body
-        const user = EventModel.findOne({uniqueId})
-        console.log(user)
-        res.send(user)
      
-        if (user) {
-            console.log("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-            let noOfSeats = user.noOfSeats || 0; // Initialize to 0 if user.noOfSeats is undefined
-            noOfSeats += req.body.tickets;
-        
-            try {
-                const updated_user = await EventModel.updateOne(
-                    { uniqueId },
-                    { $set: { noOfSeats: noOfSeats } }
-                );
-        
-                console.log("Updatation Done");
-                console.log(updated_user);
-            } catch (error) {
-                console.error("Error updating user:", error);
-            }
-        }
-        
+        console.log(data)
+      
+        const findo = await EventModel.findOne(
+         {uniqueId:uniqueId}
+        )
+        console.log(findo)
      
-        else{
-         res.send("User not found")
-        }
+     
+     
+        const updated_data = await EventModel.updateOne(
+         {uniqueId:uniqueId},
+         {
+             $set:data
+         }
+        )
+       
+        res.json({message:"Changes made successfully"})
+        
     } catch (error) {
-        console.log("Error occured in adding the tickets",error)
+        res.json({message:"Failed to save changes"})
     }
+
+   
+
+
+
   
 })
 
-router.get('/',(req,res)=>{
-    res.send("This is the reaponse")
-})
-// router.post('/')
-router.get('/add_tickets',(req,res)=>{
-    res.send("Thi si the page")
-})
+router.post('/updatepassword',async(req,res)=>{
+    const data = req.body;
+   const uniqueId = data.uniqueId
+   const currentpassword = data.currentpassword
+   const newpassword = data.newpassword
 
-router.get('/:uniqueId',async(req,res)=>{
-    uniqueId = req.params
-    res.send("This si the uwniuf",uniqueId)
-})
-
-router.get('/:uniqueId/add_tickets',async(req,res)=>{
-
+   
     try {
-        const uniqueId=req.params;
-        const data = req.body
-        const user = EventModel.findOne({uniqueId})
+        const user = await EventModel.findOne({uniqueId})
+        console.log(uniqueId)
         console.log(user)
-        res.send(user)
-    }catch(eroor)
-    {
-        console.log("eror")
+        
+
+        if(user){
+            console.log("suraj jain")
+            console.log(user.Password)
+            const passwordMatch = await bcrypt.compare(currentpassword, user.Password);
+
+            if(passwordMatch){
+                console.log("Password Matched")
+               const  newhashedpassword = await hashPassword(newpassword)
+                const result = await EventModel.updateOne(
+                    { uniqueId: uniqueId }, // Filter
+                    { $set: { Password: newhashedpassword} } // Update
+                
+                    );
+             const user = await EventModel.findOne({
+                uniqueId
+             })
+             console.log(user.Password)
+                    res.send({message:'success'})
+            }
+
+            else{
+                console.log("Password does not match")
+                res.send({message:'No'})
+            }
+        }
+    
+    } catch (error) {
+        console.log("idht")
+        res.send({message:'Failed'})
     }
 })
+
 module.exports = router;

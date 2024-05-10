@@ -2,16 +2,25 @@
 
 import React, { useEffect } from 'react';
 import { useState} from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams, } from 'react-router-dom';
+// import useHistory from
 import './eventdetails.css'
 import {Link} from 'react-router-dom'
+
 // import { eventDetails } from './eventDashboard';
 
 function Event_details() {
   const {uniqueId} = useParams()
   const [eventDetails, setEventDetails] = useState(null);
+  const dataToSend = eventDetails;
 
+console.log("data to sen: " , dataToSend);
+const navigate=useNavigate()
+const handleClick = () => {
+  navigate(`/dashboard/${uniqueId}/update_details`,{state:dataToSend})
+};
   useEffect(() => {
+    console.log("worning of eul")
     // Fetch event details from the backend using uniqueId
     fetch(`http://localhost:3000/api/showevents/${uniqueId}`)
       .then((response) => response.json())
@@ -22,6 +31,7 @@ function Event_details() {
   if (!eventDetails) {
     return <p>Loading...</p>;
   }
+
 
   console.log("there",eventDetails)
   
@@ -107,9 +117,14 @@ function Event_details() {
           <div className="answer">{eventDetails.numberOfSeats}</div>
         </div>
 
-        <Link to={`/dashboard/${uniqueId}/update_details`}>
-          <button >Update Details</button>
-        </Link>
+        {/* <Link
+    to={{
+        pathname: `/dashboard/${uniqueId}/update_details`,
+        state: dataToSend
+    }}> */}
+
+          <button onClick={handleClick}>Update Details</button>
+        {/* </Link> */}
       </div>
     </div>
   );

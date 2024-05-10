@@ -21,16 +21,16 @@ router.post('/loginhere', async (req, res) => {
     console.log("working till heree")
     console.log("USER: ", user);
     
-    if (!user) {
-        console.log("working till heree, USER NOT FOUUND")
-      return res.status(404).json({ error: 'User not found' });
+    if(!user){
+      res.send({message:'wrong uniqueId'})
     }
-
     // Compare the entered password with the hashed password stored in the database
     // async function hashPassword(Password) {
     //     const saltRounds = 10;
     //     return bcrypt.hash(Password, saltRounds);
     //   }
+
+    else{
       console.log('Entered Password:', Password);
       console.log('Stored Hashed Password:', user.Password);
     //   const hashedPassword = await hashPassword(Password);
@@ -41,15 +41,16 @@ router.post('/loginhere', async (req, res) => {
     if (passwordMatch) {
       // Authentication successful
       // You might want to generate a token for the user at this point
-      res.status(200).json({ message: 'Authentication successful' });
+      res.status(200).json({ message: 'success' });
       console.log();
     } else {
       console.log("Wrong passwrd")
-      res.status(401).json({ error: 'Invalid password' });
+      res.json({message:'wrong'});
     }
+  }
   } catch (error) {
     console.error('Error during login:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({message:'failed' });
   }
 });
 

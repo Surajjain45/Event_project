@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import { useState ,useEffect} from 'react';
 import './eventdashboard.css'
 import Sidenav from './sidebar'
+import { FaBars, FaTimes,FaUser } from 'react-icons/fa';
+
 import './eventdashboard.css'
 
 
@@ -34,17 +36,26 @@ export default function Eventdashboard(){
   console.log("eventdetails",eventDetails)
   return (
     <>
-      <Sidenav isOpen={isOpen} toggleSidebar={toggleSidebar} closeSidebar={closeSidebar} />
+      <Sidenav heading = {eventDetails.eventName} isOpen={isOpen} toggleSidebar={toggleSidebar} closeSidebar={closeSidebar} />
       <div className="page">
 
       
-      <div className={isOpen === true ? 'open dashboard_navbar' : 'dashboard_navbar'}>
+      <nav className={isOpen === true ? 'open dashboard_navbar' : 'dashboard_navbar'}>
+        <div className="left_nav">
         {!isOpen && 
-          <button onClick={toggleSidebar}>
-            open
-          </button>}
-        <h2>Hi {eventDetails.organizerName}</h2>
-      </div>
+
+          <FaBars className='nav-toggle-btn' onClick={toggleSidebar}/>
+        }
+          
+        {/* <h2> {eventDetails.organizerName}</h2> */}
+        <h2>Dashboard</h2>
+        </div>
+        <div className="right_nav">
+            < FaUser className='right-icons-dashboard'/>
+            < FaUser className='right-icons-dashboard'/>
+            < FaUser className='right-icons-dashboard'/>
+        </div>
+      </nav>
       <div className={isOpen === true ? 'outlet open' : 'outlet'}>
         <Outlet/>
       </div>

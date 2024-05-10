@@ -15,7 +15,7 @@
 .section{
     /* display: block; */
     position: relative;
-    width: 98vw;
+    width: 100vw;
     height: 550px; 
     background-image: url('Hero_assest/Hero_background.png');
     background-size:100% 100%;
@@ -126,3 +126,33 @@
 .Hero_buttons .btns{
     font-size: 24px;
 }
+
+/* @media (max-width: 768px) {
+    .section {
+        height: 400px;
+    }
+
+    .nav {
+        top: 20px;
+    }
+
+    .nav_heading {
+        font-size: 24px;
+    }
+
+    .hero_text {
+        top: 100px;
+    }
+
+    .hero_text .text_heading {
+        font-size: 40px;
+    }
+
+    .hero_text p {
+        font-size: 18px;
+    }
+
+    .Hero_buttons {
+        top: 300px;
+    }
+} */

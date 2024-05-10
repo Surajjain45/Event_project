@@ -22,11 +22,18 @@ console.log('This is the user',user)
    const result = await EventModel.updateOne(
     { uniqueId: uniqueId }, // Filter
     { $set: { Password: password} } // Update
-);
+
+    );
+    
+    res.send({message:'success'})
+
 }
+
+
 
 else{
     console.log("user does not exist")
+    res.send({message:'Failed'})
 }
 // console.log(result)
 })

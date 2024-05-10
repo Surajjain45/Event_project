@@ -2,14 +2,16 @@ import './Event_login.css';
 import { useFormik } from 'formik';
  import * as Yup from 'yup';
  import axios from 'axios';
+ import Swal from 'sweetalert2'
 //  import { useHistory } from 'react-router-dom'; 
- import { Link } from 'react-router-dom';
+ import { Link, useNavigate } from 'react-router-dom';
 
 export default function Event_login() {
 
   // console.log("helloooo from loginn")
 
   // const history = useHistory();
+  const navigate = useNavigate()
 
 
   const formikstep1 = useFormik({
@@ -31,17 +33,59 @@ export default function Event_login() {
         const response = await axios.post('http://localhost:3000/api/loginevents/loginhere', values);
         // const response = await axios.post('http://localhost:3000/api/events/create', values);
         console.log(values);
-        console.log(response)
+        console.log("main",response)
         console.log(response.data)
 
         // Handle successful authentication, e.g., redirect to the dashboard
         console.log('Authentication successsssful', response.data);
 
-        // history.push('/dashboard');
-      } catch (error) {
-        // Handle authentication error
-        console.error('Authentication failed', error);
+         
+        if(response.data.message==='success'){
+          Swal.fire({
+              icon: 'success',
+              title: 'Logged In',
+              // customClass: 'custom-swal-text-size',
+             
+            }).then((result) =>{
+              // Check if the user clicked "Ok"
+              if (result.isConfirmed) {
+                // Navigate to the desired location
+                navigate(`/dashboard/${values.uniqueId}`,{replace:true});
+              }})
       }
+
+      else if(response.data.message==='failed'){
+console.log("failed")
+Swal.fire({
+icon: "error",
+title: "Oops...",
+html:'Something went wrong! <br> Please try again'
+
+});
+      }
+
+      else if(response.data.message==='wrong uniqueId'){
+          Swal.fire({
+              icon: "error",
+              title: "UniqueId does not exist",                    
+            });
+      }
+
+      else if(response.data.message==='wrong'){
+          Swal.fire({
+              icon: "error",
+              title: "Wrong password",                    
+            });
+      }
+     } catch (error) {
+      console.log('Error changing password catch', error);
+      Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          html: '<div class="swal-fail">Something went wrong!<br>Please try again after some time</div>',
+          
+        });
+     }
     },
   });
 
@@ -71,7 +115,7 @@ export default function Event_login() {
       </div>
       <div className='form-section'>
 
-
+        <div className="email">
 
   {/* ^^^^^^^^ onSubmit={handleSubmit} ^^^^^^^*/}
 
@@ -97,6 +141,9 @@ export default function Event_login() {
           onBlur={formikstep1.handleBlur}
           value= {formikstep1.values.uniqueId}
           />
+          </div>
+
+          <div className="email">
       
       
         <div className="label">
@@ -116,7 +163,7 @@ export default function Event_login() {
           onBlur={formikstep1.handleBlur}
           value= {formikstep1.values.Password}
           />
-
+</div>
           <Link to="/forgotpassword"><p className='forgotpassword'>Forgot Password?</p></Link>
       
       

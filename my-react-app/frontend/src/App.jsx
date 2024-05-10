@@ -17,6 +17,7 @@ import Event_details from "./components/eventDashboard/Eventdetails"
 import Audience from "./components/eventDashboard/Audiences"
 import Update_details from "./components/eventDashboard/Update_details"
 import Overview from "./components/eventDashboard/Overview"
+import Changepassword from "./components/eventDashboard/Changepassword"
 
 
 
@@ -59,6 +60,7 @@ function App() {
             <Route path="/dashboard/:uniqueId/event_details" element={<Event_details/>}></Route>
             <Route path="/dashboard/:uniqueId/audience" element={<Audience/>}></Route>
             <Route path="/dashboard/:uniqueId/update_details" element={<Update_details/>}></Route>
+            <Route path="/dashboard/:uniqueId/change_password" element={<Changepassword/>}></Route>
 
           </Route>      
          <Route path="/verify" element = {<Verification/>}></Route>
