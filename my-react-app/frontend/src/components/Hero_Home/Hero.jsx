@@ -1,12 +1,15 @@
+import { Link } from 'react-router-dom'
 import './Hero.css'
 import {nav_items} from './Hero_assest/Nav'
+import NavBar from './navbar'
 export default function Hero(){
     return(
       <>
+      
       <div className="section">
          
       </div>
-      <div className="nav">
+      {/* <div className="nav">
               <h2 className="nav_heading">Event Heading</h2>
               <div className="nav-links">
                   <ul>
@@ -16,8 +19,11 @@ export default function Hero(){
                   </ul>
               </div>
 
-              <button className='btns event_btn'>Your Event</button>
+              {/* <button className='btns event_btn'>Your Event</button> 
 
+          </div> */}
+          <div className="nav">
+          <NavBar/>
           </div>
 
           <div className="hero_text">
@@ -27,8 +33,8 @@ export default function Hero(){
           </div>
 
           <div className="Hero_buttons">
-            <button className='btns'>Create Event</button>
-            <button className='btns'>See Your Event</button>
+           <Link to="/registerevent"><button className='btns'>Create Event</button></Link> 
+            <Link to="/login"><button className='btns'>See Your Event</button></Link>
           </div>
       </>
     )

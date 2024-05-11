@@ -18,6 +18,8 @@ import Audience from "./components/eventDashboard/Audiences"
 import Update_details from "./components/eventDashboard/Update_details"
 import Overview from "./components/eventDashboard/Overview"
 import Changepassword from "./components/eventDashboard/Changepassword"
+import ContactUs from "./components/contactus/contactus"
+import Aboutus from "./components/aboutus/about"
 
 
 
@@ -34,12 +36,14 @@ function Home(){
     <Hero/>
      <Features/>
      <Events/>
-     <RegisterEvent/>
-     <Event_login/>
+     {/* <RegisterEvent/>
+     <Event_login/> */}
      {/* <Buttonpages/> */}
-     <LoginForm/>
+     {/* <LoginForm/> */}
      <AudienceRegistration/>
-     <showAudience/>
+     <Aboutus/>
+     <ContactUs/>
+     {/* <showAudience/> */}
   
     </>
   )
@@ -64,6 +68,8 @@ function App() {
 
           </Route>      
          <Route path="/verify" element = {<Verification/>}></Route>
+         <Route path="/login" element={<LoginForm/>}></Route>
+         <Route path="/registerevent" element={<RegisterEvent/>}></Route>
         
 
          <Route path="/forgotpassword" element={<Forgotpassword/>}></Route>

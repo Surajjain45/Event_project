@@ -7,6 +7,7 @@ import Feature_details from './Features_details'
 export default function Features(){
     return(
         <>
+        <div className="feature_section">
          <h1 className='feature_heading'>Our <span className='highlight'>Features</span></h1>
         
         <div className="upper">
@@ -20,7 +21,7 @@ export default function Features(){
         <Feature_details icon = {icon2} heading="Security" des="Security from fake Registration and black ticket sales."/>
         </div>
 
-       
+        </div>
 
         </>
     )

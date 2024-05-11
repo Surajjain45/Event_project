@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Croissant+One&family=Kanit:wght@600;800;700&family=Nunito+Sans:opsz,wght@6..12,600&family=Pacifico&family=Poppins:wght@300;400;500;600;800;900&family=Roboto&family=Sigmar&family=Skranji:wght@700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+     --yellow: #FFCA1D;
+     --dark-blue: #2B3377;
+     --blue: #4B4AEF;
+     --blackish:#585858;
+}
+.heading{
+    color: black;
+    text-align: center;
+    font-size: 60px;
+    margin:20px 0;
+}
+
+.heading span{
+    color: var(--yellow);
+}
+
+.members_section{
+    display: flex;
+    flex-direction: column;
+}
+
+.member{
+    display: flex;
+}
+
+.second{
+    flex-direction: row-reverse;
+}
+
+.image{
+    border: 4px solid var(--yellow);
+}
+
+.details{
+    font-family: 'Nunito Sans';
+    font-weight: 700;
+}
