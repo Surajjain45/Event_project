@@ -16,7 +16,7 @@ import Eventdashboard from './components/eventDashboard/eventDashboard';
 import Event_details from "./components/eventDashboard/Eventdetails"
 import Audience from "./components/eventDashboard/Audiences"
 import Update_details from "./components/eventDashboard/Update_details"
-import Overview from "./components/eventDashboard/Overview"
+import Overview from "./components/eventDashboard/overview"
 import Changepassword from "./components/eventDashboard/Changepassword"
 import ContactUs from "./components/contactus/contactus"
 import Aboutus from "./components/aboutus/about"
