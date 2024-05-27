@@ -85,10 +85,10 @@ const eventSchema = new mongoose.Schema({
     showCollegeName: Boolean,
     showPhoneNumber: Boolean,
 
-     uniqueId: String,
-     Password: String,
-     isVerified:Boolean,
-     
+    uniqueId: String,
+    Password: String,
+    isVerified:Boolean,
+    
      audience: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Audience' }],
      //
 
