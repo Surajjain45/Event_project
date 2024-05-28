@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 const session = require('express-session');
 var logger = require('morgan');
+const stripe = require("stripe")("sk_test_51OlwghSExm8g8tzTYZgZiAixHJEkB5yyDkqNMyEgI07c4iuJGR4pd3GeUf3xv9HRBSdrZsfVHRz7WxRequhMmNeu00MIeYzuiC");
 // var session = require('express-session')
 
 
@@ -21,6 +22,10 @@ var check = require('./routes/check.js')
 var verifyrouter = require('./routes/verify.js')
 var password = require('./routes/password.js')
 var dashboard_update = require('./routes/dashboard_update.js')
+var paymentCheckout = require('./routes/payment.js')
+// var eventData = require('./routes/eventData.js')
+
+
 const cors = require('cors');
 
 // let temporaryData = {}
@@ -77,6 +82,13 @@ app.use('/password',password)
 app.use('/forgotpassword',forgotpassword)
 
 app.use('/dashboard',dashboard_update)
+
+// for payment checkout
+app.use('/api/paymentcheckout' , paymentCheckout)
+
+
+// app.use('/api/eventdata' , eventData);
+
 
 
 // catch 404 and forward to error handler

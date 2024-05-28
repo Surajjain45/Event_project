@@ -6,6 +6,7 @@ const audienceSchema = new mongoose.Schema({
   email: String,
   phone: Number,
   checkin: Boolean,
+ 
 //   name: { type: String, required: true },
 //   email: { type: String, required: true },
 //   phone: { type: String, required: true },
