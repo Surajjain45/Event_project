@@ -40,7 +40,7 @@ function Home(){
      <Event_login/> */}
      {/* <Buttonpages/> */}
      {/* <LoginForm/> */}
-     <AudienceRegistration/>
+     {/* <AudienceRegistration/> */}
      <Aboutus/>
      <ContactUs/>
      {/* <showAudience/> */}

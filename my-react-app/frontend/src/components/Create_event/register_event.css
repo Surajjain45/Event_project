@@ -1,12 +1,20 @@
-@import url('https://fonts.googleapis.com/csss2?family=Arimo:wght@700&family=Croissant+One&family=Kanit:wght@600;800;700&family=Nunito+Sans:opsz,wght@6..12,600&family=Pacifico&family=Poppins:wght@300;400;500;600;800;900&family=Roboto&family=Sigmar&family=Skranji:wght@700&display=swap');
+/* @import url('https://fonts.googleapis.com/csss2?family=Arimo:wght@700&family=Croissant+One&family=Kanit:wght@600;800;700&family=Nunito+Sans:opsz,wght@6..12,600&family=Pacifico&family=Poppins:wght@300;400;500;600;800;900&family=Roboto&family=Sigmar&family=Skranji:wght@700&display=swap'); */
  
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Croissant+One&family=Kanit:wght@600;800;400;700&family=Nunito+Sans:opsz,wght@6..12,600&family=Pacifico&family=Poppins:wght@300;400;500;600;800;900&family=Roboto&family=Sigmar&family=Skranji:wght@700&display=swap');
 
+:root{
+  --yellow: #FFCA1D;
+  --dark-blue: #2B3377;
+  --blackish:#585858;
+  --blue:#4B4AEF;
+}
 .whole_page {
   /* background: linear-gradient(0deg, rgba(75,74,239,1) 0%, rgba(90,74,239,1) 63%, rgba(157,74,239,1) 100%); */
   /* background: linear-gradient(180deg, #fc466b, #3f5efb); */
   background: linear-gradient(180deg, #0f0c29, #302b63, #24243e);
   /* background: linear-gradient(180deg, #0f0c29, #302b63, #b4b4b4); */
     /* background-size: 400% 400%; */
+    background: #4B4AEF;
     animation: gradient 15s ease infinite;
     height: 100%;
 }
@@ -22,25 +30,55 @@
     align-items: center;
     /* background-color: floralwhite; */
 }
+
+.info-section{
+  font-family: 'Nunito Sans',sans-serif;
+border: none;
+}
+
+.form_section{
+  padding: 20px 0;
+  display: flex;
+  /* border: 13px solid black; */
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  /* width: 100vw; */
+}
+
+.form_section_heading{
+  font-family: 'Nunito Sans',sans-serif;
+  font-size: 50px;
+  color: white;
+  margin: 40px;
+}
  .form {
-    margin-left: auto;
-    width: 80%;
+   /* border: 3px solid red; */
+    /* width: 80%; */
     background-color: white;
     border-radius: 1rem;
     box-shadow: 0px 0px 5px black;
     color:#302b63;
-    margin-left: 15%;
+    /* background-color: var(--yellow); */
+    padding: 10px;
+    background-color: white;
+    display: flex;
+    width: 60vw;
+    justify-content: center;
+    color: white;
     
 }
   .form-container {
     display: flex;
     padding: 1rem;
+    width: fit-content;
+    
   }
   .form-sidebar {
     /* background-image: url("C:\Users\Karan Verma\Desktop\EVENT PROJECT\Event_project\my-react-app\src\components\Create_event\asset\Sidebar Bg.png"); */
-    background-color: #0f0c29;
+    background-color:var(--dark-blue);
     background-repeat: no-repeat;
-    width: 400px;
+    width: 28vw;
     height: 568px;
     padding: 3rem 2rem;
     display: flex;
@@ -48,7 +86,7 @@
     gap: 2rem;
     color: white;
     /* border: solid #4b4aef; */
-    border-radius: 1%;
+    border-radius: 8px;
   }
 
   .step .circle{
@@ -65,6 +103,7 @@
   .active .circle{
     background-color: white;
     color: #0f0c29;
+    /* border: 3px solid black; */
 
   }
 
@@ -143,7 +182,8 @@ flex-direction: column;
 .label {
     color:#302b63;
     font-weight: 400;
-    border: tomato;
+    align-self: self-start;
+    margin-top: 18px;
 }
 
 
@@ -171,7 +211,7 @@ flex-direction: column;
     
 }
 
-.stp label{
+.stp .gister{
         font-weight: 460;
         font-size: large;
 }
@@ -235,6 +275,7 @@ flex-direction: column;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 2px solid black;
     color: var(--White);
     font-weight: 700;
   }
@@ -281,18 +322,19 @@ flex-direction: column;
   }
 
   .info-section-title{
-    width: 99vw;
-    height: 100vh;
+    width: 100vw;
+    height: 50vh;
     /* align-items: center; */
     text-align:center;
-    padding: 100px;
-    border: solid red;
+    padding: 30px;
+    /* border: solid red; */
     border-radius: 6px;
     /* background-color: white; */
     /* text-transform: uppercase; */
     color: white;
     margin: auto;
-    padding-top: 40vh;
+    padding-top: 20vh;
+    /* border: 3px solid red; */
   
   }
 
@@ -305,6 +347,7 @@ flex-direction: column;
   .info-section-title h2{
     margin-bottom: 2rem;
     font-weight: 200;
+    font-size: 2rem;
     /* height: 100%; */
   }
 
@@ -321,21 +364,25 @@ flex-direction: column;
   }
 
   .info_section_main h3{
-    margin-top: 20vh;
+    margin-top: 10vh;
     font-size: 2.2rem;
     font-weight: 200;
     text-transform: capitalizes;
+    color: white;
+    margin-bottom: 10vh;
     text-align: center;
-    border: solid blue;
+    /* border: solid blue; */
   }
   .img-on-left{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     
   }
   .img-on-right{
     display: flex;
     flex-direction: row-reverse;
+    justify-content: center;
   }
 
   .img-on-left .info-section-img-container {
@@ -343,27 +390,30 @@ flex-direction: column;
   }
   .img-on-left .info-section-content {
     margin-right: 15vw;
+    width: 40vw;
   }
   .img-on-right .info-section-img-container {
     margin-right: 15vw;
   }
 
   .img-on-right .info-section-content {
-    margin-left: 20vw;
-    /* width: 40vw; */
+    margin-left: 15vw;
+     width: 40vw;
   }
 
   .img-on-side {
     /* height: 10vw; */
-    border: solid pink; 
-    
+    border-bottom: 5px solid pink; 
+    display: flex;
+    padding: 50px 0;
+    justify-content: space-around;
     
   }
   .info-section-img{
     /* width: 50px; */
     height: 20vw;
-    margin: 4rem;
-    margin-top: 5rem;
+    /* margin: 4rem; */
+    /* margin-top: 5rem; */
   }
 
   .info-section-step-title{
@@ -379,15 +429,28 @@ flex-direction: column;
 
   .info-section-content{
     margin: 5rem;
+    /* border: 3px solid black; */
     font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: white;
   }
 
+  .third .info-section-step-title{
+    font-size: 45px;
+  
+  }
+
+  .first .info-section-content{
+    align-items:start;
+  }
+
+  .first .info-section-step-title{
+    align-items: start;
+  }
   .range_input {
     width: 100%;
-
   }
 
   .Event_capacity .capacity_output{
@@ -489,5 +552,13 @@ flex-direction: column;
   input[type=range]:focus::-ms-fill-upper {
     background: #4B4AEF;
   }
+
+
+  .exp{
+    color: black;
+  }
   
+  input{
+    border: 1px solid var(--blue);
+  }
   

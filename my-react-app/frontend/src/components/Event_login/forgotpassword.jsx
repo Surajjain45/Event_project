@@ -81,20 +81,21 @@ Swal.fire({
     });
     return (
         <>
-        <div className="form">
+        <div className="login_page">
+        <div className="form_login">
         
-        <div className="form-container">
+        <div className="form-container_login">
         
             <form onSubmit={formik.handleSubmit}>
 
             <div className="stp step-1  ">
-        <div className='stp-content'>
+        <div className='stp-content_login'>
       <div className="header">
         <h1 className="title">Update your password</h1>
         <p className="exp">Please enter the <a href="#" onClick={handleAboutUniqueIDClick} >Unique Event ID</a> for your Event and the registered email
         </p>
       </div>
-      <div className='form-section'>
+      <div className='form-section_login'>
 
                 <div className="email">
                     <div className="label">
@@ -134,11 +135,12 @@ Swal.fire({
                     />
                 </div>
 
-                <button className="submit_btn"type="submit">Send email</button>
+                <button className="submit_btn login-stp forgot-stp"type="submit">Send email</button>
                 </div>
                 </div>
                 </div>
             </form>
+            </div>
             </div>
        
 

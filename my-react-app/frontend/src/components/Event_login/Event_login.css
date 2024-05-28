@@ -1,32 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Croissant+One&family=Kanit:wght@600;800;700&family=Nunito+Sans:opsz,wght@6..12,600&family=Pacifico&family=Poppins:wght@300;400;500;600;800;900&family=Roboto&family=Sigmar&family=Skranji:wght@700&display=swap');
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+:root{
+     --yellow: #FFCA1D;
+     --dark-blue: #2B3377;
+     --blue: #4B4AEF;
+     --blackish:#585858;
+}
+
+body{
+  background-color:var(--blue);
+}
+
+.header{
+  /* border: 3px solid red; */
+}
+
+.login_page{
+ background: url('../Hero_Home/Hero_assest/Hero_background.png');
+  width: 100vw;
+  /* border: 3px solid black; */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .btnss .register_event {
   background: none;
   color: #302b63;
   justify-self: flex-start;
-
-
-}
+} 
 
 /* .btnss .login-stp {
   /* background-color: #302b63; */
 /* } */ 
 
-.form-container {
+.form-container_login {
   width: fit-content;
 }
 
 /* .forgotpassword {
   /* cursor:grab; */
 /* } */ 
-.form {
-  margin: auto;
-  margin-left: 40%;
+.form_login {
+  background-color: white;
   /* padding: 10rem; */
+  box-shadow: 0px 0px 5px black;
+  height: 80vh;
+  border-radius: 8px;
   width: 55vw;
+  background-color: 4px solid black;
 
 }
 
 .forgotpassword{
-  position: absolute;
+position: absolute;
 margin-left: auto;
-left: 75px;
+left: 45px;
+top: 380px;
+}
+
+.forgotpassword:hover{
+ text-decoration:underline;
+}
+
+
+.stp-content_login{
+  /* border: 3px solid black; */
+  height: 75vh;
+  width: 50vw;
+  display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* border: 1px solid blue; */
+    padding: 20px;
+    gap: 2rem;
+    overflow-y: scroll;
+    height: calc(100%);
+  /* border: 3px solid red; */
+}
+
+
+label{
+  font-size:20px
+}
+
+.login_btn {
+    align-items: center;
+    align-self:baseline;
+}
+
+.login_btn button{
+  margin: 0 8px;
+}
+
+.login-stp{
+  background-color: var(--yellow);
+  border-radius: 10px;
+  color: black;
+  font-family:'Nunito Sans',sans-serif;
+  font-size: 20px;
+  padding: 6px 18px;
+  /* border: 3px solid black; */
+}
+
+@media(max-width:768px){
+  .header .title{
+    font-size: 20px
+  }
+
+  .form_login{
+    width:75vw;
+  }
+
+  input{
+    max-width: 5px;
+    border: 3px solid pink;
+  }
+
+  .stp-content_login{
+    max-width: 50vw;
+  }
 }
