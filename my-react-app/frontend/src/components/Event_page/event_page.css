@@ -226,12 +226,17 @@
 }
 
 .profile_icons{
+        display: flex;
         margin: 12px 0;
         margin-bottom: 20px;
 }
 
 .profile_icons .icon{
       margin: 0 15px;
+}
+
+.whatsapp{
+        transform: rotate(100deg);
 }
 
 

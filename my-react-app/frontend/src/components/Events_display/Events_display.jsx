@@ -39,6 +39,10 @@ export default function Events(){
     // setEvents([])
     console.log("events : " ,events);
 
+    if(!events){
+      return
+    }
+
     // const eventts = [
     //     { uniqueId: 'karan_karan', eventName: 'AAINA EVENT', description: 'Lorem suraj', image: image1  ,eventCategory : 'gaming'},
     //     { uniqueId: '0608_aaina', eventName: 'AAINA EVENT2', description: 'Lorem suraj', image: image2 ,eventCategory : 'meeting'},
@@ -54,7 +58,7 @@ export default function Events(){
     //   ];
 
    
-    return(
+   else return(
         <>
         <div className="event_section">
             <h1 className='event_heading'>Explore<span className='highlight'>Events</span></h1>

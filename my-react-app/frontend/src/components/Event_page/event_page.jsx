@@ -114,7 +114,7 @@ console.log(eventDetails)
                </div>
 
             </div>
-               <Link key={eventDetails.uniqueId} to={`/book_ticket/${eventDetails.uniqueId}`}> <button className='book_ticket btns'>   Book Ticket </button></Link>
+               <Link key={eventDetails.uniqueId} to={`/book_ticket/${eventDetails.uniqueId}`}> <button className='book_ticket'>   Book Ticket </button></Link>
                {/* <button className='book_ticket btns'>Book Ticket</button> */}
 
             <div className="about_organiser">
@@ -135,7 +135,7 @@ console.log(eventDetails)
                   </div>
 
                   <div className="profile_icons">
-                    <img className='icon' src={icon1} alt="" width='40px' height='40px'/>
+                    <img className='icon whatsapp' src={icon1} alt="" width='40px' height='40px'/>
                     <img className='icon' src={icon2} alt="" width='40px' height='40px'/>
                     <img className='icon' src={icon3} alt="" width='40px' height='40px'/>
 
