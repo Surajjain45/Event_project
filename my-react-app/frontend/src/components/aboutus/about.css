@@ -25,6 +25,7 @@
 .members_section{
     display: flex;
     flex-direction: column;
+    /* color:var(--dark-blue) */
 }
 
 .member{
