@@ -11,6 +11,7 @@ export default function Event_login() {
   // console.log("helloooo from loginn")
 
   // const history = useHistory();
+  
   const navigate = useNavigate()
 
 
@@ -26,6 +27,7 @@ export default function Event_login() {
     }),
 
     onSubmit: async (values) => {
+      console.log("hereeeeeee")
 
       try {
         
@@ -89,7 +91,11 @@ html:'Something went wrong! <br> Please try again'
     },
   });
 
+  
 
+  const handleSubmitClick = () => {
+    formikstep1.submitForm();
+  };
   const handleAboutUniqueIDClick = (e) => {
     e.preventDefault();
     alert('Event ID is : "Your Email id (without "@gmail.com") + "_" + Your event name with no space."');
@@ -99,21 +105,23 @@ html:'Something went wrong! <br> Please try again'
     return (
         <>
 
-<div className="form">
+        <div className="login_page">
 
-<div className="form-container">
+<div className="form_login">
 
-<form  onSubmit={formikstep1.handleSubmit}>
+<div className="form-container_login">
+
+<form onSubmit={formikstep1.handleSubmit}>
 
     <div className="stp step-1  ">
-        <div className='stp-content'>
+        <div className='stp-content_login'>
       <div className="header">
         <h1 className="title">LOGIN INTO YOUR EVENT</h1>
         <p className="exp">
           Please enter the <a href="#" onClick={handleAboutUniqueIDClick}>Unique Event ID</a> for your Event and the password
         </p>
       </div>
-      <div className='form-section'>
+      <div className='form-section_login'>
 
         <div className="email">
 
@@ -124,7 +132,7 @@ html:'Something went wrong! <br> Please try again'
       <Questions classnam={'planner_number'}  label={'Phone Number'} input_type={'tel'} placeholder={'e.g. +123 4567 890'}/> */}
 
         <div className="label">
-          <label htmlFor="eventcode">Event UniqueID</label>
+          <label htmlFor="eventcode">Event UniqueID:</label>
           {/* {formikstep1.touched.fullname && formikstep1.errors.fullname && (
          <p className="error">{formikstep1.errors.fullname}</p>
          )}  */}
@@ -147,7 +155,7 @@ html:'Something went wrong! <br> Please try again'
       
       
         <div className="label">
-          <label htmlFor="eventpassword">Password</label>
+          <label htmlFor="eventpassword">Password:</label>
           {/* {formikstep1.touched.email && formikstep1.errors.email && (
          <p className="error">{formikstep1.errors.email}</p>
         )}  */}
@@ -195,13 +203,16 @@ html:'Something went wrong! <br> Please try again'
                 
                 
 
-      <div className="btnss btns-stp1">
+      <div className="btnss btns-stp1 login_btn">
        
+       <Link to='/registerevent'>
       <button className="register_event" type="button">
          Haven't registered Event yet?
         </button>
+        </Link>
          {/* <Link to="/dashboard"> */}
-        <button className="login-stp" type="submit" >
+
+        <button className="login-stp" type='button' onClick={handleSubmitClick}>
           Login
         </button>
     {/* </Link> */}
@@ -210,6 +221,7 @@ html:'Something went wrong! <br> Please try again'
 
       </div>
       </form>
+      </div>
       </div>
       </div>
         </>

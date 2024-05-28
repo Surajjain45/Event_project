@@ -1,4 +1,4 @@
-import './register_event.css'
+import styles from './register_event.css'
 import  {useState,  } from "react";
 import Sidebar from './sidebar_component';
 // import Questions from './q_input';
@@ -275,7 +275,7 @@ export default function RegisterEvent() {
         {/* <p>R</p> */}
         <div className='info-section-title'>
               <h1 className='title-1'>Lets Plan Your Perfect Event Together!</h1>
-              <h2>Creating Memorable Events, One Step at a Time</h2>
+              <h2>Creating Memorable Events, One Step at a Time!</h2>
 
               
               {/* <img src={image1} alt='step 1' text={About Yourself} sub-text={Create your Profile so that aduinece could trust you}></img>
@@ -284,10 +284,10 @@ export default function RegisterEvent() {
               </div>
 
               <div className='info_section_main'>
-                <h3>Start Your Event Journey with Us in Three Simple Steps</h3>
-                <Info_section className={'img-on-left img-on-side'} img={Personal}  title={'1. Personal Info'} para={'Start by creating your account. We need some basic information to get you started. Your details will be kept secure.'}/>
+                <h3>Start Your Event Journey with Us in Three Simple Steps:</h3>
+                <Info_section className={'img-on-left img-on-side first'} img={Personal}  title={'1. Personal Info'} para={'Start by creating your account. We need some basic information to get you started. Your details will be kept secure.'}/>
                 <Info_section className={'img-on-right img-on-side'} img={Event}  title={'2. Event Details'} para={'Tell us about your event. When, where, and what type of event are you planning? This information will help us customize your experience.'}/>
-                <Info_section className={'img-on-left img-on-side'} img={Form}  title={'3. Customize for Your Audience'} para={'This is where the magic happens. Customize your event to match your vision. Choose themes, food, entertainment, and more!'}/>
+                <Info_section className={'img-on-left img-on-side third'} img={Form}  title={'3. Customize for Your Audience'} para={'This is where the magic happens. Customize your event to match your vision. Choose themes, food, entertainment, and more!'}/>
               
               </div>
               </div>
@@ -302,6 +302,10 @@ export default function RegisterEvent() {
               {/* Step 3 Start*/}
               {/* Step 3 end */}
               </div>
+
+        <div className="form_section">
+
+          <div className="form_section_heading">Enter the details</div>
 
         <div className="form">
 
@@ -390,7 +394,7 @@ export default function RegisterEvent() {
       <Questions classnam={'planner_number'}  label={'Phone Number'} input_type={'tel'} placeholder={'e.g. +123 4567 890'}/> */}
 
         <div className="label">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Name:</label>
           {formikstep1.touched.fullname && formikstep1.errors.fullname && (
          <p className="error">{formikstep1.errors.fullname}</p>
          )} 
@@ -408,8 +412,9 @@ export default function RegisterEvent() {
           />
       
       
-        <div className="label">
-          <label htmlFor="email">Email Address</label>
+        <div className="label
+        ">
+          <label htmlFor="email">Email Address:</label>
           {formikstep1.touched.email && formikstep1.errors.email && (
          <p className="error">{formikstep1.errors.email}</p>
         )} 
@@ -427,8 +432,9 @@ export default function RegisterEvent() {
           />
       
       
-        <div className="label">
-          <label htmlFor="name">Phone Number</label>
+        <div className="label
+        ">
+          <label htmlFor="name">Phone Number:</label>
           {formikstep1.touched.phone && formikstep1.errors.phone && (
          <p className="error">{formikstep1.errors.phone}</p>
         )}
@@ -914,6 +920,7 @@ className='range_input'
 </div>
 
 
+</div>
 </div>
 </div>
 
