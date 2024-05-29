@@ -32,6 +32,7 @@
     }
     
     .nav-logo {
+      font-family: ; 
       color: white;
       align-items: center;
       margin-left: 20px;
@@ -39,6 +40,7 @@
       text-decoration: none;
       font-size: 2rem;
       flex-grow: 1;
+      font-weight: 600;
     
       display: flex;
       align-items: center;

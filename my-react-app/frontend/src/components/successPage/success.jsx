@@ -140,9 +140,10 @@ const Success = () => {
           <p>Keep checking mail for any futher notice or update. We have send your ticket to your mail and you can also download them from below button.</p>
         </div>
 
-        <div className="Hero_buttons">
+        <div className="Hero_buttons flex flex-col">
           <button className='btns' onClick={() => generateAndDownloadQRCode()}>Download Ticket</button>
           {/* <button className='btns'>See Your Event</button> */}
+          <p className='text-white-200 underline mt-2'><a href='http://localhost:5173/'>Go back to homepage</a></p>
         </div>
     </>
   );

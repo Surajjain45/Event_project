@@ -100,6 +100,12 @@ label{
   margin: 0 8px;
 }
 
+.input{
+
+  /* width: 100%; */
+
+}
+
 .login-stp{
   background-color: var(--yellow);
   border-radius: 10px;
@@ -110,7 +116,7 @@ label{
   /* border: 3px solid black; */
 }
 
-@media(max-width:768px){
+/* @media(max-width:768px){
   .header .title{
     font-size: 20px
   }
@@ -127,4 +133,4 @@ label{
   .stp-content_login{
     max-width: 50vw;
   }
-}
+} */

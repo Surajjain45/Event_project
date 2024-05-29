@@ -123,7 +123,7 @@ html:'Something went wrong! <br> Please try again'
       </div>
       <div className='form-section_login'>
 
-        <div className="email_login">
+        <div className="login">
 
   {/* ^^^^^^^^ onSubmit={handleSubmit} ^^^^^^^*/}
 
@@ -151,7 +151,7 @@ html:'Something went wrong! <br> Please try again'
           />
           </div>
 
-          <div className="email_login">
+          <div className="login">
       
       
         <div className="label">
@@ -227,5 +227,7 @@ html:'Something went wrong! <br> Please try again'
         </>
     );
 }
+
+
 
 
