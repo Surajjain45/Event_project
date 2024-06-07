@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Croissant+One&family=Kanit:wght@600;800;700&family=Nunito+Sans:opsz,wght@6..12,600&family=Pacifico&family=Poppins:wght@300;400;500;600;800;900&family=Roboto&family=Sigmar&family=Skranji:wght@700&display=swap');
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+:root{
+     --yellow: #FFCA1D;
+     --dark-blue: #2B3377;
+     --blue: #4B4AEF;
+     --blackish:#585858;
+}
+.login-stp{
+    background-color: var(--yellow);
+    border-radius: 10px;
+    color: black;
+    font-family:'Nunito Sans',sans-serif;
+    font-size: 20px;
+    padding: 6px 18px;
+}
+
+.contact_input{
+    border: 1px solid var(--blue);
+}

@@ -39,8 +39,8 @@ export default function Events(){
     // setEvents([])
     console.log("events : " ,events);
 
-    if(!events){
-      return
+    if(events.error==="Internal Server Error"){
+      return  <h1 className='event_heading'>Explore<span className='highlight'>Events</span></h1>
     }
 
     // const eventts = [
