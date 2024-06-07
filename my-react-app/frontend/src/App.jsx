@@ -20,6 +20,9 @@ import Overview from "./components/eventDashboard/overview"
 import Changepassword from "./components/eventDashboard/Changepassword"
 import ContactUs from "./components/contactus/contactus"
 import Aboutus from "./components/aboutus/about"
+import User_form from "./components/user_registration/user_form"
+import Success from './components/successPage/Success'
+// import Cancel from './components/cancelPage/cancel'
 
 
 
@@ -70,6 +73,8 @@ function App() {
          <Route path="/verify" element = {<Verification/>}></Route>
          <Route path="/login" element={<LoginForm/>}></Route>
          <Route path="/registerevent" element={<RegisterEvent/>}></Route>
+         <Route path="/success" element= {<Success/>}></Route>
+         {/* <Route path="/cancel" element= {<Cancel/>}></Route> */}
         
 
          <Route path="/forgotpassword" element={<Forgotpassword/>}></Route>
