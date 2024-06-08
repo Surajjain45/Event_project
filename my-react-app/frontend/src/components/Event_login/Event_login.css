@@ -46,22 +46,32 @@ body{
 /* .forgotpassword {
   /* cursor:grab; */
 /* } */ 
-.form_login {
+.form_login{
+  display: flex;
   background-color: white;
   /* padding: 10rem; */
+  justify-content: center;
   box-shadow: 0px 0px 5px black;
-  height: 80vh;
+  height: 77vh;
   border-radius: 8px;
-  width: 55vw;
+  width: 60vw;
   background-color: 4px solid black;
 
 }
 
+.header{
+  /* border:3px solid red; */
+  width: auto;
+}
 .forgotpassword{
-position: absolute;
-margin-left: auto;
-left: 45px;
-top: 380px;
+margin: 8px 2px;
+}
+
+.form-container_login form{
+  /* border:2px solid red; */
+  margin-top: 30px;
+  /* height: full; */
+  height: 80%;
 }
 
 .forgotpassword:hover{
@@ -71,27 +81,29 @@ top: 380px;
 
 .stp-content_login{
   /* border: 3px solid black; */
-  height: 75vh;
-  width: 50vw;
+  /* height: 75vh; */
+  /* width: 50vw; */
+  width: 95%;
   display: flex;
     flex-direction: column;
     justify-content: flex-start;
     /* border: 1px solid blue; */
-    padding: 20px;
-    gap: 2rem;
+    /* padding: 20px; */
+    /* gap: 2rem; */
     overflow-y: scroll;
-    height: calc(100%);
+    /* height: calc(100%); */
   /* border: 3px solid red; */
 }
 
 .email_login{
-  width: 20px;
+  width: 40vw;
 }
 label{
   font-size:20px
 }
 
 .login_btn {
+  margin-top: 40px;
     align-items: center;
     align-self:baseline;
 }
@@ -116,7 +128,14 @@ label{
   /* border: 3px solid black; */
 }
 
-/* @media(max-width:768px){
+.form-section_login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: 3px solid black; */
+}
+
+@media(max-width:768px){
   .header .title{
     font-size: 20px
   }
@@ -125,12 +144,49 @@ label{
     width:75vw;
   }
 
-  input{
+  /* input{
     max-width: 5px;
     border: 3px solid pink;
+  } */
+
+  /* .stp-content_login{
+    max-width: 50vw;
+  } */
+}
+
+@media(max-width:580px){
+  .email_login label{
+    font-size: 14px;
   }
 
-  .stp-content_login{
-    max-width: 50vw;
+  .login_btn .register_event{
+    font-size: 12px;
   }
-} */
+
+  .login_btn .login-stp{
+    font-size: 12px;
+  }
+
+  .exp{
+    font-size: 10px;
+  }
+
+  .email_login .input{
+    height: 22px;
+  }
+
+  .stp{
+    padding-top: 10px;
+  }
+
+  .forgotpassword{
+    font-size: 12px;
+  }
+}
+
+
+@media (max-width:380px){
+  .login_btn .register_event{
+    font-size: 10px;
+  }
+}

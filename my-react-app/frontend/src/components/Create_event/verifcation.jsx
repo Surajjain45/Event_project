@@ -127,7 +127,7 @@ export default function Verification() {
       </div>
       <div className='form-section_login'>
 
-        <div className="email">
+        <div className="email_login">
                 <div className="label">
                     <label htmlFor="password">Enter your password:</label>
                     {formik.touched.password && formik.errors.password && (
@@ -146,7 +146,7 @@ export default function Verification() {
                 />
                 </div>
 
-         <div className="email">
+         <div className="email_login">
                 <div className="label">
                     <label htmlFor="confirmpassword">Confirm Password:</label>
                     {formik.touched.confirmpassword && formik.errors.confirmpassword && (
