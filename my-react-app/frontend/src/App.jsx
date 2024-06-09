@@ -21,7 +21,9 @@ import Changepassword from "./components/eventDashboard/Changepassword"
 import ContactUs from "./components/contactus/contactus"
 import Aboutus from "./components/aboutus/about"
 import User_form from "./components/user_registration/user_form"
-import Success from './components/successPage/Success'
+import Success from './components/successPage/success'
+import ScannerPage from "./components/eventDashboard/ScannerPage"
+// import Event_details from "./components/eventDashboard/Eventdetails"
 // import Cancel from './components/cancelPage/cancel'
 
 
@@ -81,10 +83,13 @@ function App() {
          <Route path="/login" element={<LoginForm/>}></Route>
          <Route path="/registerevent" element={<RegisterEvent/>}></Route>
          <Route path="/success" element= {<Success/>}></Route>
+         <Route path="/scannerpage/:audience" element= {<ScannerPage/>}></Route>
          {/* <Route path="/cancel" element= {<Cancel/>}></Route> */}
         
 
          <Route path="/forgotpassword" element={<Forgotpassword/>}></Route>
+         <Route path="/logout" element={<Home/>}></Route>
+         <Route path="/eventdetail" element={<Event_details/>}></Route>
          
     </Routes>
     {/* </BrowserRouter> */}

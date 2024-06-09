@@ -112,6 +112,12 @@ label{
   margin: 0 8px;
 }
 
+.input{
+
+  /* width: 100%; */
+
+}
+
 .login-stp{
   background-color: var(--yellow);
   border-radius: 10px;

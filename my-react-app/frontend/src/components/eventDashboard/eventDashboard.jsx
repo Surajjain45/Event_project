@@ -7,6 +7,7 @@ import { FaBars, FaTimes,FaUser } from 'react-icons/fa';
 import axios from 'axios';
 import { IoMdOpen } from "react-icons/io";
 import { MdLogout } from "react-icons/md";
+import Scanner from './Scanner';
 
 
 // import './eventdashboard.css'
@@ -217,14 +218,16 @@ export default function Eventdashboard(){
             Home
           </a> */}
         </li>
+         <Link to="/forgotpassword">
         <li>
           <a
             href="#"
             className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-          >
+            >
             Change Password
           </a>
         </li>
+            </Link>
         <li>
           {/* <a
             href="#"
@@ -232,7 +235,10 @@ export default function Eventdashboard(){
           >
             Logout
           </a> */}
+          <Link to="/logout">
+
             <MdLogout className="text-white mx-2 md:dark:hover:text-blue-500"/>
+          </Link>
         </li>
       </ul>
     </div>
@@ -336,11 +342,14 @@ export default function Eventdashboard(){
       {/* } */}
     </div>
   </div>
+    <Link to="/eventdetail">
   <div className='w-18/20 m-0 mx-4 my-6  text-right flex justify-end items-center cursor-pointer'>
+
       <span className='font-xl  text-black font-semibold underline underlin'>Update Event Details </span>
       <IoMdOpen className='text-black mx-1'/>
 
   </div>
+    </Link>
 {/* </form> */}
 
 
@@ -462,19 +471,18 @@ export default function Eventdashboard(){
   
    
   </table>
+
 </div>
-
-
-
-
-
-
-
 
 </div>
 </div>
+{/* <div className='absolute'> */}
 
-      </div>
+  <div className='w-11/12 text-right  items-end flex justify-end m-auto fixed bottom-4 md:left-6 left-0'>
+    <Link key={uniqueId} to={`/scannerpage/${uniqueId}`}><Scanner/></Link>
+  </div>
+</div>
+      {/* </div> */}
     </>
   )
 }

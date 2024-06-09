@@ -23,6 +23,7 @@ var verifyrouter = require('./routes/verify.js')
 var password = require('./routes/password.js')
 var dashboard_update = require('./routes/dashboard_update.js')
 var paymentCheckout = require('./routes/payment.js')
+var ticketCheck = require('./routes/ticketcheck.js')
 // var eventData = require('./routes/eventData.js')
 
 
@@ -85,6 +86,7 @@ app.use('/dashboard',dashboard_update)
 
 // for payment checkout
 app.use('/api/paymentcheckout' , paymentCheckout)
+app.use('/ticket', ticketCheck);
 
 
 // app.use('/api/eventdata' , eventData);

@@ -37,84 +37,84 @@ const handleClick = () => {
   
   return (
     
-    <div className='event_details_page' >
+    <div className='event_details_page w-[100vw]' >
       
 
-      <div className="container">
+      <div className="container w-11/12 margin-auto">
         <h3 className='dashboard_heading_profile'>Your Details:</h3>
-        <div className="one_detail">
-          <span>Name: </span>
-          <div className="answer">{eventDetails.organizerName}</div>
+        <div className="one_detail w-11/12">
+          <span className='block uppercase tracking-wide  font-medium text-gray-700  text-sm font-bold mb-2 ml-2'>Name: </span>
+          <div className='uppercase appearance-none block w-full text-lg font-semibold bg-gray-100 border border-gray-300 text-gray-700 text-black borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'>{eventDetails.organizerName}</div>
         </div>
 
         <div className="one_detail">
-          <span>Phone number: </span>
-          <div className="answer">{eventDetails.organizerPhone}</div>
+          <span className='block uppercase tracking-wide  font-medium text-gray-700  text-sm font-bold mb-2 ml-2'>Phone number: </span>
+          <div className='uppercase appearance-none block w-full text-lg font-semibold bg-gray-100 border border-gray-300 text-gray-700 text-black borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'>{eventDetails.organizerPhone}</div>
         </div>
 
         <div className="one_detail">
-          <span>Email id: </span>
-          <div className="answer">{eventDetails.organizerEmail}</div>
+          <span className='block uppercase tracking-wide  font-medium text-gray-700  text-sm font-bold mb-2 ml-2'>Email id: </span>
+          <div className='uppercase appearance-none block w-full text-lg font-semibold bg-gray-100 border border-gray-300 text-gray-700 text-black borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'>{eventDetails.organizerEmail}</div>
         </div>
       </div>
 
       <div className="container">
       <h3 className='dashboard_heading_profile'>Event Details:</h3>
         <div className="one_detail">
-          <span>Event Name: </span>
-          <div className="answer">{eventDetails.eventName}</div>
+          <span className='block uppercase tracking-wide  font-medium text-gray-700  text-sm font-bold mb-2 ml-2'>Event Name: </span>
+          <div className='uppercase appearance-none block w-full text-lg font-semibold bg-gray-100 border border-gray-300 text-gray-700 text-black borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'>{eventDetails.eventName}</div>
         </div>
 
         <div className="one_detail">
-          <span>Event Uniqueid: </span>
-          <div className="answer">{eventDetails.uniqueId}</div>
+          <span className='block uppercase tracking-wide  font-medium text-gray-700  text-sm font-bold mb-2 ml-2'>Event Uniqueid: </span>
+          <div className='uppercase appearance-none block w-full text-lg font-semibold bg-gray-100 border border-gray-300 text-gray-700 text-black borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'>{eventDetails.uniqueId}</div>
         </div>
 
         <div className="one_detail">
-          <span>Event description: </span>
-          <div className="answer">{eventDetails.eventDescription}</div>
+          <span className='block uppercase tracking-wide  font-medium text-gray-700  text-sm font-bold mb-2 ml-2'>Event description: </span>
+          <div className='uppercase appearance-none block w-full text-lg font-semibold bg-gray-100 border border-gray-300 text-gray-700 text-black borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'>{eventDetails.eventDescription}</div>
         </div>
 
         <div className="one_detail">
-          <span>Event mode </span>
-          <div className="answer">{eventDetails.eventMode}</div>
+          <span className='block uppercase tracking-wide  font-medium text-gray-700  text-sm font-bold mb-2 ml-2'>Event mode </span>
+          <div className='uppercase appearance-none block w-full text-lg font-semibold bg-gray-100 border border-gray-300 text-gray-700 text-black borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'>{eventDetails.eventMode}</div>
         </div>
 
         {
           eventDetails.eventMode==='offline' && <div className="one_detail">
-          <span>Event Location</span>
-          <div className="answer">{eventDetails.eventLoc}</div>
+          <span className='block uppercase tracking-wide  font-medium text-gray-700  text-sm font-bold mb-2 ml-2'>Event Location</span>
+          <div className='uppercase appearance-none block w-full text-lg font-semibold bg-gray-100 border border-gray-300 text-gray-700 text-black borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'>{eventDetails.eventLoc}</div>
         </div>
         }
 
           <div className="one_detail">
-          <span>Event Date </span>
-          <div className="answer">{eventDetails.eventDate}</div>
+          <span className='block uppercase tracking-wide  font-medium text-gray-700  text-sm font-bold mb-2 ml-2'>Event Date </span>
+          <div className='uppercase appearance-none block w-full text-lg font-semibold bg-gray-100 border border-gray-300 text-gray-700 text-black borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'>{eventDetails.eventDate}</div>
         </div>
 
         <div className="one_detail">
-          <span>Event Time </span>
-          <div className="answer">{eventDetails.eventDate}</div>
+          <span className='block uppercase tracking-wide  font-medium text-gray-700  text-sm font-bold mb-2 ml-2'>Event Time </span>
+          <div className='uppercase appearance-none block w-full text-lg font-semibold bg-gray-100 border border-gray-300 text-gray-700 text-black borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'>{eventDetails.eventDate}</div>
         </div>
 
         <div className="one_detail">
-          <span>Event Categoty </span>
-          <div className="answer">{eventDetails.eventCategory}</div>
+          <span className='block uppercase tracking-wide  font-medium text-gray-700  text-sm font-bold mb-2 ml-2'>Event Categoty </span>
+          <div className='uppercase appearance-none block w-full text-lg font-semibold bg-gray-100 border border-gray-300 text-gray-700 text-black borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'>{eventDetails.eventCategory}</div>
         </div>
 
         <div className="one_detail">
-          <span>Event Duration </span>
-          <div className="answer">{eventDetails.Duration}</div>
+          <span className='block uppercase tracking-wide  font-medium text-gray-700  text-sm font-bold mb-2 ml-2'>Event Duration </span>
+          <div className='uppercase appearance-none block w-full text-lg font-semibold bg-gray-100 border border-gray-300 text-gray-700 text-black borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'>{eventDetails.Duration}</div>
         </div>
 
         <div className="one_detail">
-          <span>Ticket price:</span>
-          <div className="answer">{eventDetails.Ticketprice}</div>
+          <span className='block uppercase tracking-wide  font-medium text-gray-700  text-sm font-bold mb-2 ml-2'>Ticket price:</span>
+          <div className='uppercase appearance-none block w-full text-lg font-semibold bg-gray-100 border border-gray-300 text-gray-700 text-black borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'>{eventDetails.Ticketprice}</div>
         </div>
 
         <div className="one_detail">
-          <span>No.of seats </span>
-          <div className="answer">{eventDetails.numberOfSeats}</div>
+          <span className='block uppercase tracking-wide  font-medium text-gray-700  text-sm font-bold mb-2 ml-2'>No.of seats </span>
+          <div className='uppercase appearance-none block w-full text-lg font-semibold bg-gray-100 border border-gray-300 text-gray-700 text-black borde rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white'>{eventDetails.numberOfSeats}</div>
         </div>
 
         {/* <Link

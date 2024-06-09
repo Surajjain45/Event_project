@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './success.css';
 import QRCode from 'react-qr-code';
@@ -10,11 +10,21 @@ import ReactDOM from 'react-dom';
 const params = new URLSearchParams(location.search);
 const eventId = params.get('eventId');
 const audienceDataString = params.get('audienceData');
+const audienceID = params.get('AudienceID');
 
 
 const Success = () => {
+
+  const [ticketURL , setTicketURL] = useState([]);
+
+
+  console.log("1");
   const location = useLocation();
+  console.log("2");
   const audienceData = JSON.parse(decodeURIComponent(audienceDataString));
+  
+  console.log("3");
+  console.log("scuccess page string : ", audienceDataString );
 
   useEffect(() => {
     // Parse audienceData from the query parameters
@@ -33,9 +43,7 @@ const Success = () => {
 
   const saveData = async (users, eventId) => {
     try {
-
       const zip = new JSZip();
-
       for (const user of users) {
         try {
           console.log({user , eventId});
@@ -46,13 +54,29 @@ const Success = () => {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ user, eventId }), // Fixed the body structure
+            body: JSON.stringify({...user, eventId }), // Fixed the body structure
           });
 
           if (response.ok) {
             console.log('Audience registered successfully');
+            const data = await response.json();
+            console.log(data);
+            // console.log(data.json());
+          //  const TicketId = data.audienceId;
+          //  console.log("saved data fron backend : ", SavedData);
+          //  console.log("saved Id from backend : ", SavedData.AudienceId);
+            // generateAndDownloadQRCode(SavedData.AudienceId);
+            const ticketurl = `http://localhost:3000/ticket/${data.data.audienceId}`;
+            console.log("url :", ticketurl);
+            // setTicketURL(ticketurl);
+            // console.log("after setting : ", ticketURL);
 
-            generateAndDownloadQRCode(user);
+
+            await  generateAndDownloadQRCode(ticketurl, zip);
+
+            // setTicketURL(old => [...old, ticketurl]);
+        
+            // TODO: change this a URL
 
           } else {
             if(response.status === 400){
@@ -66,23 +90,31 @@ const Success = () => {
       }
 
 
+      const zipBlob = await zip.generateAsync({ type: 'blob' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(zipBlob);
+      a.download = 'EVENTIFY_TICKET.zip';
+      a.click();
       // for loop end here
-
-
     } catch (error) {
       console.error('Error processing form submission:', error);
     }
   };
 
 
-  const generateAndDownloadQRCode = async () => {
- const users = audienceData;
+  
+  const generateAndDownloadQRCode = async (ticketurl, zip) => {
+
+    // console.log("ticket url : ", ticketURL);
+//  const users = audienceData;
+
+const user = ticketurl;
+console.log("user url : ", user);
 
     try {
-      const zip = new JSZip();
   
-      for (const user of users) {
-        const qrCodeData = JSON.stringify({ user, eventId });
+      // for (const user of ticketurl) {
+        const qrCodeData = JSON.stringify(user);
         // const dataUrl = await QRCode.toDataURL(qrCodeData);
 
          // Create a temporary div to render the QR code component
@@ -95,27 +127,22 @@ const Success = () => {
       // Use html2canvas to capture the QR code as an image
       const canvas = await html2canvas(tempDiv);
 
+      return new Promise((resolve, reject) => {
+        canvas.toBlob((blob) => {
+            if (blob) {
+                // Add Blob to zip file
+                zip.file(`ticket_${ticketurl.split('/').pop()}.png`, blob);
 
-       // Convert the canvas to a Blob
-       canvas.toBlob(async (blob) => {
-        // Add Blob to zip file
-        zip.file(`ticket_${user.name.replace(/\s+/g, '_')}.png`, blob);
+                // Remove the temporary div
+                document.body.removeChild(tempDiv);
 
-        // Remove the temporary div
-        document.body.removeChild(tempDiv);
-
-        // If this is the last user, generate and download the zip file
-        if (users.indexOf(user) === users.length - 1) {
-          zip.generateAsync({ type: 'blob' }).then((zipBlob) => {
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(zipBlob);
-            a.download = 'EVENTIFY_TICKET.zip';
-            a.click();
-          });
-        }
-      });
-    }
-    
+                resolve();
+            } else {
+                reject(new Error('Canvas to Blob conversion failed.'));
+            }
+        });
+    });
+    // }
     } catch (error) {
       console.error('Error generating or downloading QR codes:', error);
     }
@@ -140,9 +167,10 @@ const Success = () => {
           <p>Keep checking mail for any futher notice or update. We have send your ticket to your mail and you can also download them from below button.</p>
         </div>
 
-        <div className="Hero_buttons">
-          <button className='btns' onClick={() => generateAndDownloadQRCode()}>Download Ticket</button>
+        <div className="Hero_buttons flex flex-col">
+          <button className='btns' onClick={() => saveData(audienceData, eventId)}>Download Ticket</button>
           {/* <button className='btns'>See Your Event</button> */}
+          <p className='text-white-200 underline mt-2'><a href='http://localhost:5173/'>Go back to homepage</a></p>
         </div>
     </>
   );
