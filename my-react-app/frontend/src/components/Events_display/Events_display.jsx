@@ -66,7 +66,7 @@ export default function Events(){
             {/* <h1>suraj jain</h1> */}
 
 
-            {events.map((events) => (
+            {events && events.map((events) => (
                 <Link key={events.uniqueId} to={`/events_page/${events.uniqueId}`}>
                 {/* <Event_details  key={events.uniqueId} icon= {imageComponentsArray[Math.floor(Math.random() * imageComponentsArray.length)]} title={events.eventName} des={events.eventCategory} /> */}
                 <Event_details  key={events.uniqueId} title={events.eventName} des={events.eventCategory} />

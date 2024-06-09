@@ -14,7 +14,7 @@ function NavBar() {
       <nav className="navbar font-mont">
         <div className="nav-container">
           <div className="nav-logo">
-            Event Heading
+            Eventify
             {/* <i className="fas fa-code"></i> */}
           </div>
 

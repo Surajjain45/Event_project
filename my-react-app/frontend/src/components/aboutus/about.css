@@ -110,6 +110,8 @@
 
 .a_icon{
     margin: 0 6px;
+    color:black;
+    font-size: 2rem;
 }
 
 @media (max-width:700px){

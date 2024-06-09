@@ -9,7 +9,7 @@ import LoginForm from "./components/Event_login/Event_login"
 import AudienceRegistration from "./components/audienceRegister/audienceRegister"
 import Verification from "./components/Create_event/verifcation"
 import Forgotpassword from "./components/Event_login/forgotpassword"
-
+import React, { useRef } from 'react';
 // import Event_details from "./components/Events_display/Event_details"
 // import Eventdashboard_mui from "./components/eventDashboard/eventDashboard_mui"
 import Eventdashboard from './components/eventDashboard/eventDashboard';
@@ -32,8 +32,15 @@ import Success from './components/successPage/Success'
 // import {React} from 'react';
 // import {  Route, Switch } from 'react-router-dom';
 
+
+
 function Home(){
 
+  const contact = useRef(null);
+
+  const contacts = () => {
+    contact.current.scrollIntoView({ behavior: 'smooth' });
+  };
   return(
     <>
     <Hero/>
@@ -87,4 +94,4 @@ function App() {
   )
 }
 
-export default App
+export  {App}

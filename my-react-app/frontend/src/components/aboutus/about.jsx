@@ -7,6 +7,10 @@ import suraj_img from '/PROFESSIONAL PIC.jpg'
 
 import icon3 from '../../assets/git.png'
 import icon1 from '../../assets/portfolio.png'
+import { FaBeer } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaBriefcase } from "react-icons/fa";
 
 import icon2 from '../../assets/linkedin.png'
 
@@ -28,16 +32,16 @@ export default function Aboutus(){
                         <div className="name">KARAN VERMA</div>
                         <div className="about_icons">
                             
-                            <a href='https://iamkaranverma.netlify.app/'>  <img className='a_icon' src={icon1} alt="" width='40px' height='40px'/></a>
-                            <a href='https://surajjainportfolio.netlify.app/'>  <img className='a_icon' src={icon2} alt="" width='40px' height='40px'/></a>
-                            <a href='https://surajjainportfolio.netlify.app/'>  <img className='a_icon' src={icon3} alt="" width='40px' height='40px'/></a>
+                            <a href='https://iamkaranverma.netlify.app/'>  <FaBriefcase className='a_icon' width='40px' height='40px'/></a>
+                            <a href='https://www.linkedin.com/in/imkaranverma/'>  <FaLinkedin className='a_icon'  width='40px' height='40px'/></a>
+                            <a href='https://github.com/imkaranverma'>  <FaGithub className='a_icon' width='40px' height='40px'/></a>
     
     
                       </div>
                         <div className="break"></div>
                         <div className="role">Frontend and Backend developer</div>
-                        <div className="more1">Lorem ipsum dolor sit amet.</div>
-                        <div className="more2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, deleniti?</div>
+                        <div className="more1">Final Year Btech Student in CSE.</div>
+                        <div className="more2">Skilled in full-stack development and web design using ReactJS, Node JS, MongoDB, ExpressJS, (MERN), Figma and TailwindCSS.</div>
                      </div>
                   </div>
 
@@ -52,16 +56,15 @@ export default function Aboutus(){
                         <div className="name">SURAJ JAIN</div>
                         <div className="about_icons">
                             
-                        <a href='https://surajjainportfolio.netlify.app/'>  <img className='a_icon' src={icon1} alt="" width='40px' height='40px'/></a>
-                        <a href='https://surajjainportfolio.netlify.app/'>  <img className='a_icon' src={icon2} alt="" width='40px' height='40px'/></a>
-                        <a href='https://surajjainportfolio.netlify.app/'>  <img className='a_icon' src={icon3} alt="" width='40px' height='40px'/></a>
-
+                        <a href='https://surajjainportfolio.netlify.app/'>  <FaBriefcase className='a_icon' width='40px' height='40px'/></a>
+                            <a href='https://www.linkedin.com/in/surajjain45/'>  <FaLinkedin className='a_icon'  width='40px' height='40px'/></a>
+                            <a href='https://github.com/Surajjain45'>  <FaGithub className='a_icon' width='40px' height='40px'/></a>
 
                   </div>
                         <div className="break"></div>
                         <div className="role">Frontend and Backend developer</div>
-                        <div className="more1">Lorem ipsum dolor sit amet.</div>
-                        <div className="more2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, deleniti?</div>
+                        <div className="more1">Final Year Btech Student in CS.</div>
+                        <div className="more2">Skilled in full-stack development using (MERN) and Problem solving.</div>
                      </div>
                   </div>
             </div>
