@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const EventModel = require('../models/event'); // Assuming you have a model for users
 
 router.post('/', async (req, res) => {
-  
+  console.log("Here")
 
   try {
 
