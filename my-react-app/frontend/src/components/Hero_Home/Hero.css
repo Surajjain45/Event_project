@@ -127,6 +127,9 @@
 
 .Hero_buttons .btns{
     font-size: 24px;
+    /* border: none; */
+    background-color: var(--yellow);
+    color: black;
 }
 
 @media (max-width:768px) {

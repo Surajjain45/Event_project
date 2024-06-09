@@ -10,6 +10,7 @@ const stripe = require("stripe")("sk_test_51OlwghSExm8g8tzTYZgZiAixHJEkB5yyDkqNM
 
 var forgotpassword = require('./routes/forgotpassword.js')
 var indexRouter = require('./routes/index.js');
+var Delete = require('/routes/delete')
 var usersRouter = require('./routes/users');
 var createRouter = require('./routes/create');
 var loginPage = require('./routes/login');
@@ -65,6 +66,7 @@ app.use('/api/allevents', allEvent);
 
 app.use('/new',news)
 
+app.use('/delete',Delete)
 // audience registering for an event
 app.use('/api/audience', audienceReg);
 

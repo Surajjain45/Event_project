@@ -30,44 +30,34 @@ function NavBar() {
                 Home
               </NavLink>
             </li>
+            
             <li className="nav-item">
               <NavLink
                 exact
-                to="/about"
+                to="/"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                About
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                exact
-                to="/upcoming"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                Buy
+                Events
               </NavLink>
             </li>
 
             <li className="nav-item">
               <NavLink
                 exact
-                to="/previousmatches"
+                to="/login"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                Predictions
+                Login
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
                 exact
-                to="/contact"
+                to="/"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
