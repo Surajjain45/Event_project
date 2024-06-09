@@ -8,9 +8,9 @@ const stripe = require("stripe")("sk_test_51OlwghSExm8g8tzTYZgZiAixHJEkB5yyDkqNM
 // var session = require('express-session')
 
 
-var forgotpassword = require('./routes/forgotpassword.js')
+var forgotpassword = require('./routes/forgotpassword.js');
 var indexRouter = require('./routes/index.js');
-var Delete = require('/routes/delete')
+var Delete = require('./routes/delete.js');
 var usersRouter = require('./routes/users');
 var createRouter = require('./routes/create');
 var loginPage = require('./routes/login');
