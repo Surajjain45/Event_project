@@ -4,7 +4,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const EventModel = require('../models/event'); // Assuming you have a model for users
 
-router.post('/', async (req, res) => {
+router.get('/', async (req, res) => {
   console.log("Here")
 
   try {
@@ -13,6 +13,7 @@ router.post('/', async (req, res) => {
     // Check if the user with the provided uniqueID exists
     const result = await EventModel.deleteMany({});
     console.log(result)
+    
     
    
   } catch (error) {
