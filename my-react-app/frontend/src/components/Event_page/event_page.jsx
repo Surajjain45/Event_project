@@ -20,7 +20,7 @@ export default function Event_page(){
   console.log("hey2  ", uniqueId);
   useEffect(() => {
     // Fetch event details from the backend using uniqueId
-    fetch(`https://event-project-2-e1g8.onrender.com//api/showevents/${uniqueId}`)
+    fetch(`https://event-project-2-e1g8.onrender.com/api/showevents/${uniqueId}`)
       .then((response) => response.json())
       .then((data) => setEventDetails(data))
       .catch((error) => console.error('Error fetching event details:', error));

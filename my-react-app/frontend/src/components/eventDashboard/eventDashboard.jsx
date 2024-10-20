@@ -23,7 +23,7 @@ export default function Eventdashboard(){
 
   useEffect(() => {
     // Fetch event details from the backend using uniqueId
-    fetch(`https://event-project-2-e1g8.onrender.com//api/showevents/${uniqueId}`)
+    fetch(`https://event-project-2-e1g8.onrender.com/api/showevents/${uniqueId}`)
       .then((response) => response.json())
       .then((data) => setEventDetails(data))
       .catch((error) => console.error('Error fetching event details:', error));
@@ -33,7 +33,7 @@ export default function Eventdashboard(){
   useEffect(() => {
     const fetchAudience = async () => {
       try {
-        const response = await fetch(`https://event-project-2-e1g8.onrender.com//api/showaudience/${uniqueId}`);
+        const response = await fetch(`https://event-project-2-e1g8.onrender.com/api/showaudience/${uniqueId}`);
         if (!response.ok) {
           throw new Error(`Error: ${response.statusText}`);
         }
@@ -51,7 +51,7 @@ export default function Eventdashboard(){
 
   // useEffect(() => {
   //   // Fetch event details from the backend using uniqueId
-  //   fetch(`https://event-project-2-e1g8.onrender.com//api/showaudience/${uniqueId}`)
+  //   fetch(`https://event-project-2-e1g8.onrender.com/api/showaudience/${uniqueId}`)
   //     .then((response) => response.json())
   //     .then((data) => setAudienceList(data))
   //     .catch((error) => console.error('Error fetching Audience List:', error));

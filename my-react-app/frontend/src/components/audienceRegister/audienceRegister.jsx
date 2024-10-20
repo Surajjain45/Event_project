@@ -18,7 +18,7 @@ const AudienceRegistration = () => {
   // console.log("hey2  ", uniqueId);
   useEffect(() => {
     // Fetch event details from the backend using uniqueId
-    fetch(`https://event-project-2-e1g8.onrender.com//api/showevents/${uniqueId}`)
+    fetch(`https://event-project-2-e1g8.onrender.com/api/showevents/${uniqueId}`)
       .then((response) => response.json())
       .then((data) => setEventDetails(data))
       .catch((error) => console.error('Error fetching event details:', error));
@@ -112,7 +112,7 @@ const AudienceRegistration = () => {
       const header = {
         "Content-Type" : "application/json"
       }
-      let response= await fetch("https://event-project-2-e1g8.onrender.com//api/paymentcheckout" , {
+      let response= await fetch("https://event-project-2-e1g8.onrender.com/api/paymentcheckout" , {
         method: "POST" , 
         headers: header,
         body: JSON.stringify(body)
@@ -262,7 +262,7 @@ const AudienceRegistration = () => {
 //       //  await console.log(wholedata);
 
        
-//         await axios.post('https://event-project-2-e1g8.onrender.com//api/events/create', wholedata);
+//         await axios.post('https://event-project-2-e1g8.onrender.com/api/events/create', wholedata);
 
 //         console.log('Event data has been saved successfully');
 //       } catch (error) {

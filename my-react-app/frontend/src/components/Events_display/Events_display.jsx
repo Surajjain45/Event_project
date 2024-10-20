@@ -24,7 +24,7 @@ export default function Events(){
       // // Function to fetch all event data from the backend
       const fetchAllEvents = async () => {
         try {
-          const response = await fetch('https://event-project-2-e1g8.onrender.com//api/allevents');
+          const response = await fetch('https://event-project-2-e1g8.onrender.com/api/allevents');
           const data = await response.json();
           setEvents(data); // // Assuming the backend returns an array of events
         } catch (error) {
