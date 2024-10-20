@@ -99,7 +99,7 @@ console.log('suraj')
         }
         console.log("thiis is the data sending",data)
           console.log("submitted by formik");
-        const response = await axios.post(`http://localhost:3000/dashboard/update`,data)
+        const response = await axios.post(`https://event-project-2-e1g8.onrender.com//dashboard/update`,data)
         console.log("this is the response",response)
 
 

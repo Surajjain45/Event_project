@@ -22,7 +22,7 @@ export default function Verification() {
         const verifyToken = async () => {
             try {
                 if (token) {
-                    let response = await fetch(`http://localhost:3000/verify?token=${token}&uniqueId=${uniqueId}`);
+                    let response = await fetch(`https://event-project-2-e1g8.onrender.com//verify?token=${token}&uniqueId=${uniqueId}`);
                     setIsverified(true);
                     // console.log(response.data.issaved)
                     console.log(response)
@@ -71,7 +71,7 @@ export default function Verification() {
                 return;
             }
             try {
-                const response = await axios.post('http://localhost:3000/password', { password, uniqueId });
+                const response = await axios.post('https://event-project-2-e1g8.onrender.com//password', { password, uniqueId });
                 console.log("Data sent");
 
                 if(response.data.message==='success'){

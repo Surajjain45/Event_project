@@ -123,7 +123,7 @@ export default function RegisterEvent() {
       let exists;
 
       try{
-       const response =  await axios.post("http://localhost:3000/check",id)
+       const response =  await axios.post("https://event-project-2-e1g8.onrender.com//check",id)
        exists= response.data.exist
        console.log(exists)
              
@@ -231,7 +231,7 @@ export default function RegisterEvent() {
         // Send data to the backend
        await console.log(wholedata);
        
-        await axios.post('http://localhost:3000/api/events/create', wholedata);
+        await axios.post('https://event-project-2-e1g8.onrender.com//api/events/create', wholedata);
 
         console.log('Event data has been saved successfully');
       } catch (error) {

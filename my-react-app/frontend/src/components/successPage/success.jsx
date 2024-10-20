@@ -48,8 +48,8 @@ const Success = () => {
         try {
           console.log({user , eventId});
           // Send a POST request to register the audience for the event
-          // http://localhost:3000/api/events/create
-          const response = await fetch(`http://localhost:3000/api/audience/register`, {
+          // https://event-project-2-e1g8.onrender.com//api/events/create
+          const response = await fetch(`https://event-project-2-e1g8.onrender.com//api/audience/register`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const Success = () => {
           //  console.log("saved data fron backend : ", SavedData);
           //  console.log("saved Id from backend : ", SavedData.AudienceId);
             // generateAndDownloadQRCode(SavedData.AudienceId);
-            const ticketurl = `http://localhost:3000/ticket/${data.data.audienceId}`;
+            const ticketurl = `https://event-project-2-e1g8.onrender.com//ticket/${data.data.audienceId}`;
             console.log("url :", ticketurl);
             // setTicketURL(ticketurl);
             // console.log("after setting : ", ticketURL);
@@ -217,8 +217,8 @@ export default Success;
 //       try {
 //         console.log(user);
 //         // Send a POST request to register the audience for the event
-//         // http://localhost:3000/api/events/create
-//         const response = await fetch(`http://localhost:3000/api/audience/register`, {
+//         // https://event-project-2-e1g8.onrender.com//api/events/create
+//         const response = await fetch(`https://event-project-2-e1g8.onrender.com//api/audience/register`, {
 //           method: 'POST',
 //           headers: {
 //             'Content-Type': 'application/json',

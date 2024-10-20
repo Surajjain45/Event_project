@@ -56,7 +56,7 @@ export default function Changepassword() {
             }
             console.log("data",data)
             try {
-                const response = await axios.post('http://localhost:3000/dashboard/updatepassword', data);
+                const response = await axios.post('https://event-project-2-e1g8.onrender.com//dashboard/updatepassword', data);
                 console.log("Data sent");
 
                 if(response.data.message==='success'){

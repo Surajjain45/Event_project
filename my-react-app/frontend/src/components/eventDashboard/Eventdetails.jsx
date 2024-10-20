@@ -22,7 +22,7 @@ const handleClick = () => {
   useEffect(() => {
     console.log("worning of eul")
     // Fetch event details from the backend using uniqueId
-    fetch(`http://localhost:3000/api/showevents/${uniqueId}`)
+    fetch(`https://event-project-2-e1g8.onrender.com//api/showevents/${uniqueId}`)
       .then((response) => response.json())
       .then((data) => setEventDetails(data))
       .catch((error) => console.error('Error fetching event details:', error));

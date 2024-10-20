@@ -29,7 +29,7 @@ export default function Forgotpassword(){
             };
             console.log(data)
            try {
-            const response = await axios.post('http://localhost:3000/forgotpassword', data);
+            const response = await axios.post('https://event-project-2-e1g8.onrender.com//forgotpassword', data);
             
             if(response.data.message==='success'){
                 Swal.fire({
