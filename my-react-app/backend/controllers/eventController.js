@@ -24,7 +24,7 @@ const  send_email = async (email,uniqueId,token)=>{
       from: 'suraj.2125cs1087@kiet.edu',
       to: email,
       subject: 'Verification email',
-      html: `<p> new Please click <a href=http://localhost:5173/verify?token=${token}&uniqueId=${uniqueId}>here</a> to visit our website.</p>`  };
+      html: `<p> new Please click <a href=https://eventifyplanner.netlify.app/verify?token=${token}&uniqueId=${uniqueId}>here</a> to visit our website.</p>`  };
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
