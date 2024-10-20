@@ -44,7 +44,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(cors({
-  origin: ['https://eventifyplanner.netlify.app/', 'http://localhost:5173','https://tips-insight.vercel.app','https://www.tipsinsight.in']
+  origin: ['https://eventifyplanner.netlify.app', 'http://localhost:5173','https://tips-insight.vercel.app','https://www.tipsinsight.in']
 }));
 app.use(logger('dev'));
 app.use(express.json());
