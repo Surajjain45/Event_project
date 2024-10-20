@@ -9,6 +9,8 @@ router.get('/', async (req, res) => {
     console.log("helloooo from bsck")
     const allEvents = await Event.find({}, 'uniqueId eventName eventCategory');
     res.json(allEvents);
+
+    
   } catch (error) {
     console.error('Error fetching all events:', error);
     res.status(500).json({ error: 'Internal server error' });

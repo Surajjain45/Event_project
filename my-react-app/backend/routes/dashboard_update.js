@@ -1,14 +1,14 @@
 const express = require("express")
 const router = express.Router()
 // const event = '../models/event'
-const bcrypt = require('bcrypt')
+const bcryptjs = require('bcryptjs')
 const crypto = require('crypto')
 const EventModel = require("../models/event")
 const { Experimental_CssVarsProvider } = require("@mui/material")
 
 async function hashPassword(password) {
     const saltRounds = 10;
-    return bcrypt.hash(password, saltRounds);
+    return bcryptjs.hash(password, saltRounds);
   }
 
 router.post('/update',async(req,res)=>{
@@ -64,7 +64,7 @@ router.post('/updatepassword',async(req,res)=>{
         if(user){
             console.log("suraj jain")
             console.log(user.Password)
-            const passwordMatch = await bcrypt.compare(currentpassword, user.Password);
+            const passwordMatch = await bcryptjs.compare(currentpassword, user.Password);
 
             if(passwordMatch){
                 console.log("Password Matched")

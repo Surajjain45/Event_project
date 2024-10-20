@@ -1,5 +1,5 @@
 // const EventModel = require('../models/event');
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 const nodemailer = require("nodemailer")
 const EventModel = require('../models/event')
 const crypto = require('crypto')
@@ -64,7 +64,7 @@ exports.createEvent = async (req, res) => {
 
 async function hashPassword(password) {
   const saltRounds = 10;
-  return bcrypt.hash(password, saltRounds);
+  return bcryptjs.hash(password, saltRounds);
 }
 
 exports.getTemporaryData = () => {

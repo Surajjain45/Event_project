@@ -1,7 +1,7 @@
 // routes/auth.js (or wherever your routes are defined)
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 const EventModel = require('../models/event'); // Assuming you have a model for users
 
 router.post('/loginhere', async (req, res) => {
@@ -27,7 +27,7 @@ router.post('/loginhere', async (req, res) => {
     // Compare the entered password with the hashed password stored in the database
     // async function hashPassword(Password) {
     //     const saltRounds = 10;
-    //     return bcrypt.hash(Password, saltRounds);
+    //     return bcryptjs.hash(Password, saltRounds);
     //   }
 
     else{
@@ -35,7 +35,7 @@ router.post('/loginhere', async (req, res) => {
       console.log('Stored Hashed Password:', user.Password);
     //   const hashedPassword = await hashPassword(Password);
 
-    const passwordMatch = await bcrypt.compare(Password, user.Password);
+    const passwordMatch = await bcryptjs.compare(Password, user.Password);
     
 
     if (passwordMatch) {
@@ -56,7 +56,7 @@ router.post('/loginhere', async (req, res) => {
 
 async function hashPassword(password) {
   const saltRounds = 10;
-  return bcrypt.hash(password, saltRounds);
+  return bcryptjs.hash(password, saltRounds);
 }
 
 // Other routes and middleware...

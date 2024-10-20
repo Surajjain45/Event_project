@@ -2,7 +2,7 @@ const express = require("express")
 const EventModel = require("../models/event")
 const router = express.Router()
 const eventController = require('../controllers/eventController')
-const bcrypt = require("bcrypt")
+const bcryptjs = require("bcryptjs")
 
 router.post('/',async(req,res)=>{
 
@@ -43,6 +43,6 @@ router.get('/',async(req,res)=>{
 })
 async function hashPassword(password) {
     const saltRounds = 10;
-    return bcrypt.hash(password, saltRounds);
+    return bcryptjs.hash(password, saltRounds);
   }
 module.exports = router

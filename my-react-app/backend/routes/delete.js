@@ -1,7 +1,7 @@
 // routes/auth.js (or wherever your routes are defined)
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcrypt');
+const bcryptjs = require('bcryptjs');
 const EventModel = require('../models/event'); // Assuming you have a model for users
 
 router.get('/', async (req, res) => {
